@@ -6,6 +6,7 @@
 
 - [方向 B 的方法设计、论文定位与证伪实验](docs/research-design.md)
 - [网页评审后冻结的首轮协议与覆盖审计](docs/round-01.md)
+- [VibeLifeBench 256 个原生候选逐条核验与门槛判定](docs/native-coverage.md)
 - [SentinelBench 首轮实验协议](docs/sentinelbench.md)
 - [VibeLifeBench 长期任务评估协议](docs/vibelifebench.md)
 - [早期局部采集诊断](docs/smoke-results.md)

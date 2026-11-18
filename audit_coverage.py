@@ -11,6 +11,15 @@ import yaml
 
 
 DECLARED_SIGNALS = {"user_message", "notification", "world"}
+ADJUDICATIONS = {
+    "verified",
+    "single_decision_or_one_outcome",
+    "evidence_already_visible",
+    "separate_reads",
+    "setup_or_generic_reminder",
+    "shared_read_without_budget_tradeoff",
+    "unresolved",
+}
 
 
 def event_kind(event):
@@ -59,6 +68,54 @@ def digest(root, paths):
     return hashlib.sha256("\n".join(records).encode()).hexdigest()
 
 
+def validate_adjudications(vibelife, mutation_rows, path):
+    candidates = {}
+    for row in mutation_rows:
+        if row["gap_seconds"] and row["gap_seconds"] > 0:
+            key = (row["task"], row["stage"], row["next_declared_signal"])
+            candidates.setdefault(key, set()).add(row["mutation"])
+
+    counts = Counter()
+    verified_tasks = set()
+    verified_windows = set()
+    task_paths = {path.parent.name: path.parent for path in vibelife.glob("eval_set/*/*/event.yaml")}
+    for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        record = json.loads(line)
+        key = (record["task"], record["stage"], record["signal"])
+        if record["index"] != number or set(record["mutations"]) != candidates.pop(key, None):
+            raise ValueError(f"Adjudication {number} does not match a unique indexed source candidate")
+        outcome = record["outcome"]
+        expected_rubric = task_paths[record["task"]] / "rubrics" / f"stage_{record['stage']}.py"
+        if (outcome not in ADJUDICATIONS or not record["reason"].strip()
+                or not expected_rubric.is_file() or vibelife / record["rubric"] != expected_rubric):
+            raise ValueError(f"Adjudication {number} lacks a reason or has an invalid rubric or outcome")
+        counts[outcome] += 1
+        if outcome in {"verified", "shared_read_without_budget_tradeoff"}:
+            proof = record["proof"]
+            if len(set(proof["independent_decisions"])) < 2 or not proof["read"] or not proof["score_anchor"]:
+                raise ValueError(f"Adjudication {number} lacks an evidence read or two score-linked decisions")
+        if outcome == "shared_read_without_budget_tradeoff" and not proof["unfiltered_read"]:
+            raise ValueError(f"Adjudication {number} lacks the read that removes the budget trade-off")
+        if outcome == "verified":
+            if not proof["competing_read"]:
+                raise ValueError(f"Adjudication {number} lacks a competing read")
+            native_window = (record["task"], record["stage"], tuple(record["native_visible_batch"]))
+            if native_window in verified_windows:
+                raise ValueError(f"Adjudication {number} double-counts a verified native window")
+            verified_windows.add(native_window)
+            verified_tasks.add(record["task"])
+
+    if candidates:
+        raise ValueError(f"Missing adjudications for {len(candidates)} candidates")
+    return {
+        "rows": sum(counts.values()),
+        "outcomes": dict(sorted(counts.items())),
+        "verified_windows": len(verified_windows),
+        "verified_tasks": len(verified_tasks),
+        "launch_gate_met": len(verified_windows) >= 10 and len(verified_tasks) >= 5,
+    }
+
+
 def inventory(vibelife, sentinel, include_windows=False):
     timelines = sorted(vibelife.glob("eval_set/*/*/event.yaml"))
     scenarios = sorted(path for path in sentinel.glob("scenarios/*/*.json") if path.name != "dev.json")
@@ -103,8 +160,15 @@ def main():
     parser.add_argument("--vibelife", required=True, type=Path)
     parser.add_argument("--sentinel", required=True, type=Path)
     parser.add_argument("--windows", action="store_true", help="Include mutation and signal pairs")
+    parser.add_argument("--adjudications", type=Path, help="Validate the per-window audit ledger")
     args = parser.parse_args()
-    print(json.dumps(inventory(args.vibelife, args.sentinel, args.windows), indent=2))
+    result = inventory(args.vibelife, args.sentinel, args.windows or args.adjudications is not None)
+    if args.adjudications:
+        mutation_rows = result["vibelife"]["mutation_rows"]
+        result["adjudications"] = validate_adjudications(args.vibelife, mutation_rows, args.adjudications)
+        if not args.windows:
+            del result["vibelife"]["mutation_rows"]
+    print(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":

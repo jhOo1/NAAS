@@ -22,6 +22,8 @@
 
 ## 首次覆盖审计结果
 
+以下记录保留首次结构盘点的状态。[后续报告](native-coverage.md)给出全部 256 个候选的逐条核验与最终启动判定。
+
 两套公开源固定在 [VibeLifeBench e557448](https://github.com/evolvent-ai/VibeLifeBench/tree/e55744876a4928fa36772f64952bbe3581ed16ca/eval_set) 和 [SentinelBench 3fa7634](https://github.com/microsoft/sentinel_environments/tree/3fa7634e114c8d223f8f2e54464be1fadbd8c7a6/scenarios)。源清单按相对路径和内容哈希固定。如需重跑，传入上述版本的源代码目录。审计脚本需要 PyYAML。
 
 ```sh
