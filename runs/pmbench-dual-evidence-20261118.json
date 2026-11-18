@@ -1,0 +1,1117 @@
+{
+  "upstream": "e1093c470c8981daf522d4ef047a7c3a71e077d7",
+  "archive": "single-baseline-gpt-54-v9-20260326-210442.jsonl",
+  "archive_score": {
+    "hit": 50,
+    "late": 2,
+    "miss": 29,
+    "false_alarm": 5,
+    "commission": 0,
+    "wrong_content": 3,
+    "check_time_calls": 6,
+    "state_query_calls": 9,
+    "overkill_steps": 4,
+    "chosen_tasks": 57,
+    "dependency_violation": 0,
+    "cross_day_total": 7,
+    "cross_day_hit": 6,
+    "cross_day_late": 0,
+    "cross_day_miss": 1,
+    "update_total": 11,
+    "update_hit": 5,
+    "update_late": 1,
+    "update_miss": 3,
+    "update_violation": 2,
+    "update_canceled": 2,
+    "canceled_total": 2,
+    "exact_set_match_steps": 52,
+    "exact_set_mismatch_steps": 28,
+    "exact_set_match_reward": 24,
+    "set_tp": 50,
+    "set_fp": 7,
+    "set_fn": 31
+  },
+  "model": "qwen3.5-27b",
+  "seeds": [
+    19,
+    41,
+    67
+  ],
+  "sampling": {
+    "temperature": 0.4,
+    "top_p": 0.9,
+    "max_tokens": 256,
+    "enable_thinking": false,
+    "stream": false
+  },
+  "frames": [
+    {
+      "day": "Monday",
+      "step_id": "d1_s5",
+      "target": "appointment_form_ready_d1",
+      "due": [
+        "appointment_form_ready_d1",
+        "send_library_email_1_d1"
+      ],
+      "menu": {
+        "task_3": "library_return_slot_d1",
+        "task_16": "appointment_form_ready_d1",
+        "task_17": "library_hold_ready_d1",
+        "task_18": "parking_receipt_kiosk_d1",
+        "task_7": "antibiotic_dinner",
+        "task_10": "asthma_2100",
+        "task_11": "straighten_couch",
+        "task_2": "appointment_reschedule_open_d1",
+        "task_13": "send_library_email_1_d1",
+        "task_5": "hardware_counter_d1",
+        "task_8": "browse_menu",
+        "task_1": "brew_tea",
+        "task_20": "grocery_pickup_shelf_d1"
+      },
+      "original_action": {
+        "day": "Monday",
+        "step_id": "d1_s5",
+        "choice": "B",
+        "task_ids": [],
+        "check_time": 0,
+        "state_queries": {},
+        "heartbeat_enabled": false,
+        "heartbeat_interval_minutes": null,
+        "heartbeat_prompted": false
+      },
+      "common_messages": [
+        {
+          "role": "system",
+          "content": "You are taking a prospective memory evaluation that assess how \nyou remember to do things later. One virtual day equals one\ncircuit of the board (7 a.m. -> 10 p.m.). Time advances step by step with\nevent cards. Your goal is to remember to perform tasks at the correct time\nor event without reminders.\n\nYou must voluntarily remember to perform tasks at the right moment. If you\nare unsure, you may still act; that is allowed. No reminders will be given\nfor missed tasks.\n\nSome cues will cancel, override, or reschedule tasks. Always follow the most\nrecent instruction for any task.\n\nEach step presents a short vignette with three ongoing-task options (A/B/C).\nPick one of A/B/C to advance. A step-level action menu is shown before each choice.\nYou may perform one or more actions from the action menu in the same step.\nEach action appears as task_N: <action text>. Return task_N handles in task_ids.\nIf you do not perform an action, set task_ids to [].\nNever repeat the same task_N handle in task_ids.\nDo not dump the whole menu into task_ids; include only the handles you are actually choosing now.\nReturn at most 8 task handles in one choose action.\n\nSome tasks are triggered by state cues that are NOT shown in the vignette.\nYou can only observe these cues by proactively querying state channels.\nAvailable state channels: appointment_portal, bank_balance, calendar, clock, course_portal, email, laundry_status, library_hold, price_tracker, reservation_waitlist, shipment_status.\n\nUse action=query_state to retrieve channel state (choice must be NONE).\nThe legacy action=check_time is supported and is equivalent to query_state with channel=clock.\nNo reminders will be given about when to query state; you must decide when to check.\nState responses are returned as a single line: \"State [channel]: <message>\".\n\n\n\nAfter any query, you still must make a choose action to advance.\n\nExample (time check):\nUser: You sit at your desk and feel it's close to 16:30.\nModel: {\"action\":\"check_time\",\"choice\":\"NONE\",\"task_ids\":[], \"channel\":\"clock\"}\nUser: State [clock]: Time 15:58 | Stopwatch: 538 min\nModel: {\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_7\"]}\n\nAlways respond in JSON. Use these exact formats:\n- {\"action\":\"query_state\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"calendar\"}\n- {\"action\":\"check_time\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"clock\"}\n- {\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}\n- {\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_1\"],\"channel\":\"NONE\"}\n"
+        },
+        {
+          "role": "user",
+          "content": "Regular tasks for every day:\n- Take antibiotic at breakfast and dinner.\n- Take asthma medication at 11:00 and 21:00."
+        },
+        {
+          "role": "user",
+          "content": "=== Monday ===\nToday's loose plan:\n- Finish the intake form when the portal posts it.\n- Grab the grocery bag when it appears on the pickup shelf.\n- Move the appointment when a better slot opens.\n- Pick up the hold when the library notice says it is ready.\n- Pick up the replacement filter when the hardware counter clears.\n- Print the parking receipt when the kiosk starts blinking.\n- Return the library book when the return slot is open.\n- Send the library email at 11:50."
+        },
+        {
+          "role": "user",
+          "content": "Breakfast comes together while you're already thinking two steps ahead.\nA) Pour coffee\nB) Open a note\nC) Check the window\n\nStep action menu:\n- task_22: Take antibiotic at breakfast.\n- task_17: Pick up the hold.\n- task_9: Organize your bag.\n- task_18: Print the parking receipt.\n- task_14: Take asthma medication at 11:00.\n- task_2: Move the appointment.\n- task_6: Read a book blurb.\n- task_16: Finish the intake form.\n- task_7: Take antibiotic at dinner.\n- task_5: Pick up the replacement filter.\n- task_13: Send the library email.\n- task_20: Grab the grocery bag.\n- task_3: Return the library book.\n- task_10: Take asthma medication at 21:00.\n- task_4: Clean the mug in the sink."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_22\"],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You get a follow-up with corrected instructions for pick up the replacement filter. You have a feeling the appointment portal may open a better slot later. Instead of the earlier cue, watch for the follow-up text before you pick up the replacement filter.\nA) Reply quickly\nB) Keep walking\nC) Put the phone away\n\nStep action menu:\n- task_17: Pick up the hold.\n- task_5: Pick up the replacement filter.\n- task_20: Grab the grocery bag.\n- task_12: Look up a recipe.\n- task_7: Take antibiotic at dinner.\n- task_3: Return the library book.\n- task_13: Send the library email.\n- task_18: Print the parking receipt.\n- task_16: Finish the intake form.\n- task_11: Straighten the couch pillows.\n- task_8: Browse a dinner menu.\n- task_2: Move the appointment.\n- task_14: Take asthma medication at 11:00.\n- task_10: Take asthma medication at 21:00."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "For a moment, you have a feeling the appointment portal may open a better slot later. You add a reminder to yourself: On Thursday, Bring the referral slip when you notice the clinic check-in window.\nA) Fill a bottle\nB) Look around\nC) Keep moving\n\nStep action menu:\n- task_16: Finish the intake form.\n- task_13: Send the library email.\n- task_10: Take asthma medication at 21:00.\n- task_18: Print the parking receipt.\n- task_14: Take asthma medication at 11:00.\n- task_3: Return the library book.\n- task_17: Pick up the hold.\n- task_7: Take antibiotic at dinner.\n- task_19: Check the weather.\n- task_20: Grab the grocery bag.\n- task_2: Move the appointment.\n- task_1: Make a cup of tea.\n- task_9: Organize your bag.\n- task_5: Pick up the replacement filter."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You know you still have to send the library email today.\nA) Stack papers\nB) Take a breath\nC) Check the time\n\nStep action menu:\n- task_14: Take asthma medication at 11:00.\n- task_12: Look up a recipe.\n- task_4: Clean the mug in the sink.\n- task_20: Grab the grocery bag.\n- task_13: Send the library email.\n- task_18: Print the parking receipt.\n- task_16: Finish the intake form.\n- task_2: Move the appointment.\n- task_10: Take asthma medication at 21:00.\n- task_17: Pick up the hold.\n- task_7: Take antibiotic at dinner.\n- task_3: Return the library book.\n- task_1: Make a cup of tea.\n- task_5: Pick up the replacement filter."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"query_state\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"clock\"}"
+        },
+        {
+          "role": "user",
+          "content": "State [clock]: Time 11:00 | Stopwatch: 220 min"
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_14\"],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You clear a little space, glance at the referral slip, and keep the afternoon together.\nA) Order lunch\nB) Sit down\nC) Tidy your bag\n\nStep action menu:\n- task_3: Return the library book.\n- task_16: Finish the intake form.\n- task_17: Pick up the hold.\n- task_18: Print the parking receipt.\n- task_7: Take antibiotic at dinner.\n- task_10: Take asthma medication at 21:00.\n- task_11: Straighten the couch pillows.\n- task_2: Move the appointment.\n- task_13: Send the library email.\n- task_5: Pick up the replacement filter.\n- task_8: Browse a dinner menu.\n- task_1: Make a cup of tea.\n- task_20: Grab the grocery bag."
+        }
+      ],
+      "reads": {
+        "original": null,
+        "key": {
+          "channel": "appointment_portal",
+          "items": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            }
+          ]
+        },
+        "unrelated": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_status",
+              "text": "Price check: item is $99.",
+              "value": 99,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ]
+        },
+        "second_only": {
+          "channel": "clock",
+          "items": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 270 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 270
+              }
+            }
+          ]
+        },
+        "both": [
+          {
+            "channel": "appointment_portal",
+            "items": [
+              {
+                "id": "appointment_form_ready_d1",
+                "text": "Appointment portal: intake form posted.",
+                "value": null,
+                "meta": {}
+              }
+            ]
+          },
+          {
+            "channel": "clock",
+            "items": [
+              {
+                "id": "clock",
+                "text": "Time 11:50 | Stopwatch: 270 min",
+                "value": "11:50",
+                "meta": {
+                  "day": "Monday",
+                  "stopwatch_min": 270
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "trials": [
+        {
+          "seed": 19,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_13\",\"task_16\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-ea38f3de-3099-9995-9c30-0836c95aa25a",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009036,
+              "prompt_tokens": 2169,
+              "prompt_tokens_details": {
+                "text_tokens": 2169
+              },
+              "total_tokens": 2196
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 10363.3
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_13",
+                "task_16"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "send_library_email_1_d1",
+              "appointment_form_ready_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 4,
+                "late": 0,
+                "miss": 2,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "clock",
+            "appointment_portal"
+          ]
+        },
+        {
+          "seed": 19,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_13\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-a574805e-fa7d-9b73-818c-52222d4989db",
+            "usage": {
+              "completion_tokens": 22,
+              "completion_tokens_details": {
+                "text_tokens": 22
+              },
+              "created": 1795009040,
+              "prompt_tokens": 2128,
+              "prompt_tokens_details": {
+                "text_tokens": 2128
+              },
+              "total_tokens": 2150
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 3553.3
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_13"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "send_library_email_1_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 3,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "clock"
+          ]
+        },
+        {
+          "seed": 41,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_13\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-c0317d01-9e78-9258-8491-3095f849ced4",
+            "usage": {
+              "completion_tokens": 22,
+              "completion_tokens_details": {
+                "text_tokens": 22
+              },
+              "created": 1795009043,
+              "prompt_tokens": 2128,
+              "prompt_tokens_details": {
+                "text_tokens": 2128
+              },
+              "total_tokens": 2150
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 3234.9
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_13"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "send_library_email_1_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 3,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "clock"
+          ]
+        },
+        {
+          "seed": 41,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_16\",\"task_13\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-dd133960-444a-9555-8b80-b03081c45a4c",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009050,
+              "prompt_tokens": 2169,
+              "prompt_tokens_details": {
+                "text_tokens": 2169
+              },
+              "total_tokens": 2196
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 7171.8
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_16",
+                "task_13"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "appointment_form_ready_d1",
+              "send_library_email_1_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 4,
+                "late": 0,
+                "miss": 2,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "appointment_portal",
+            "clock"
+          ]
+        },
+        {
+          "seed": 67,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_13\",\"task_16\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-d51acccd-128a-92c5-9d3d-9c3e5afe7525",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009052,
+              "prompt_tokens": 2169,
+              "prompt_tokens_details": {
+                "text_tokens": 2169
+              },
+              "total_tokens": 2196
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 2222.3
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_13",
+                "task_16"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "send_library_email_1_d1",
+              "appointment_form_ready_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 4,
+                "late": 0,
+                "miss": 2,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "clock",
+            "appointment_portal"
+          ]
+        },
+        {
+          "seed": 67,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_13\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-07b75b19-468a-90b5-aeb3-3000316ddac4",
+            "usage": {
+              "completion_tokens": 22,
+              "completion_tokens_details": {
+                "text_tokens": 22
+              },
+              "created": 1795009059,
+              "prompt_tokens": 2128,
+              "prompt_tokens_details": {
+                "text_tokens": 2128
+              },
+              "total_tokens": 2150
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 6820.6
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "C",
+              "task_ids": [
+                "task_13"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "send_library_email_1_d1"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "send_library_email_1_d1"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 3,
+                "total": 6
+              }
+            }
+          },
+          "read_order": [
+            "clock"
+          ]
+        }
+      ],
+      "secondary_target": "send_library_email_1_d1"
+    },
+    {
+      "day": "Wednesday",
+      "step_id": "d3_s9",
+      "target": "library_hold_second_ready_d3",
+      "due": [
+        "antibiotic_dinner",
+        "balance_low_95_d3",
+        "library_hold_second_ready_d3"
+      ],
+      "menu": {
+        "task_6": "call_insurance_1_d3",
+        "task_20": "wipe_counter",
+        "task_7": "crossday_1",
+        "task_16": "clear_downloads",
+        "task_23": "library_hold_second_ready_d3",
+        "task_15": "asthma_2100",
+        "task_9": "asthma_1100",
+        "task_17": "balance_low_95_d3",
+        "task_2": "pay_coop_dues_2_d3",
+        "task_11": "course_grade_released_d3",
+        "task_4": "skim_headlines",
+        "task_18": "antibiotic_dinner"
+      },
+      "original_action": {
+        "day": "Wednesday",
+        "step_id": "d3_s9",
+        "choice": "A",
+        "task_ids": [
+          "antibiotic_dinner"
+        ],
+        "check_time": 0,
+        "state_queries": {},
+        "heartbeat_enabled": false,
+        "heartbeat_interval_minutes": null,
+        "heartbeat_prompted": false
+      },
+      "common_messages": [
+        {
+          "role": "system",
+          "content": "You are taking a prospective memory evaluation that assess how \nyou remember to do things later. One virtual day equals one\ncircuit of the board (7 a.m. -> 10 p.m.). Time advances step by step with\nevent cards. Your goal is to remember to perform tasks at the correct time\nor event without reminders.\n\nYou must voluntarily remember to perform tasks at the right moment. If you\nare unsure, you may still act; that is allowed. No reminders will be given\nfor missed tasks.\n\nSome cues will cancel, override, or reschedule tasks. Always follow the most\nrecent instruction for any task.\n\nEach step presents a short vignette with three ongoing-task options (A/B/C).\nPick one of A/B/C to advance. A step-level action menu is shown before each choice.\nYou may perform one or more actions from the action menu in the same step.\nEach action appears as task_N: <action text>. Return task_N handles in task_ids.\nIf you do not perform an action, set task_ids to [].\nNever repeat the same task_N handle in task_ids.\nDo not dump the whole menu into task_ids; include only the handles you are actually choosing now.\nReturn at most 8 task handles in one choose action.\n\nSome tasks are triggered by state cues that are NOT shown in the vignette.\nYou can only observe these cues by proactively querying state channels.\nAvailable state channels: appointment_portal, bank_balance, calendar, clock, course_portal, email, laundry_status, library_hold, price_tracker, reservation_waitlist, shipment_status.\n\nUse action=query_state to retrieve channel state (choice must be NONE).\nThe legacy action=check_time is supported and is equivalent to query_state with channel=clock.\nNo reminders will be given about when to query state; you must decide when to check.\nState responses are returned as a single line: \"State [channel]: <message>\".\n\n\n\nAfter any query, you still must make a choose action to advance.\n\nExample (time check):\nUser: You sit at your desk and feel it's close to 16:30.\nModel: {\"action\":\"check_time\",\"choice\":\"NONE\",\"task_ids\":[], \"channel\":\"clock\"}\nUser: State [clock]: Time 15:58 | Stopwatch: 538 min\nModel: {\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_7\"]}\n\nAlways respond in JSON. Use these exact formats:\n- {\"action\":\"query_state\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"calendar\"}\n- {\"action\":\"check_time\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"clock\"}\n- {\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}\n- {\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_1\"],\"channel\":\"NONE\"}\n"
+        },
+        {
+          "role": "user",
+          "content": "Regular tasks for every day:\n- Take antibiotic at breakfast and dinner.\n- Take asthma medication at 11:00 and 21:00."
+        },
+        {
+          "role": "user",
+          "content": "=== Wednesday ===\nYou start the day with a short mental list:\n- Call the insurance desk at 12:45.\n- Check the grade when it is released.\n- Collect the reserve reading when the library hold is ready.\n- Drop off the sample slip when the lab drop box is unlocked.\n- Move money when the balance drops below $95.\n- Pay the co-op dues at 11:50.\n- Pick up the handout packet when it shows up in the lab cubby."
+        },
+        {
+          "role": "user",
+          "content": "Breakfast gives you one last orderly moment before the day gets busier.\nA) Pour coffee\nB) Open a note\nC) Check the window\n\nStep action menu:\n- task_7: Carry the prescription receipt.\n- task_17: Move money.\n- task_18: Take antibiotic at dinner.\n- task_9: Take asthma medication at 11:00.\n- task_11: Check the grade.\n- task_10: Water the plants.\n- task_6: Call the insurance desk.\n- task_15: Take asthma medication at 21:00.\n- task_8: Email the room change note.\n- task_22: Take antibiotic at breakfast.\n- task_1: Drop off the sample slip.\n- task_23: Collect the reserve reading.\n- task_2: Pay the co-op dues.\n- task_24: Label a folder.\n- task_12: Pick up the handout packet.\n- task_5: Straighten the couch pillows."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_22\"],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You get a note that paying the co-op dues does not need to happen after all. You keep meaning to call the insurance desk. You leave yourself a note: On Friday, Carry the laundry soap when you notice the laundry room cart. You get word that paying the co-op dues no longer needs to happen today.\nA) Reply quickly\nB) Keep walking\nC) Put the phone away\n\nStep action menu:\n- task_17: Move money.\n- task_2: Pay the co-op dues.\n- task_11: Check the grade.\n- task_9: Take asthma medication at 11:00.\n- task_15: Take asthma medication at 21:00.\n- task_14: Call a friend.\n- task_24: Label a folder.\n- task_1: Drop off the sample slip.\n- task_13: Clear off the desk.\n- task_12: Pick up the handout packet.\n- task_18: Take antibiotic at dinner.\n- task_6: Call the insurance desk.\n- task_23: Collect the reserve reading.\n- task_8: Email the room change note.\n- task_7: Carry the prescription receipt."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You keep meaning to pay the co-op dues. You suspect the course portal could change again later. You jot down a quick reminder: On Thursday, Carry the spare tote bag when you notice the parcel counter.\nA) Fill a bottle\nB) Look around\nC) Keep moving\n\nStep action menu:\n- task_13: Clear off the desk.\n- task_15: Take asthma medication at 21:00.\n- task_7: Carry the prescription receipt.\n- task_2: Pay the co-op dues.\n- task_8: Email the room change note.\n- task_9: Take asthma medication at 11:00.\n- task_12: Pick up the handout packet.\n- task_17: Move money.\n- task_11: Check the grade.\n- task_18: Take antibiotic at dinner.\n- task_16: Clear old downloads.\n- task_23: Collect the reserve reading.\n- task_6: Call the insurance desk.\n- task_1: Drop off the sample slip.\n- task_10: Water the plants."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You notice the lab drop box is unlocked for afternoon drop-offs. A short cancellation note about calling the insurance desk shows up on your phone. A quick message clears it: you do not need to worry about calling the insurance desk today.\nA) Stack papers\nB) Take a breath\nC) Check the time\n\nStep action menu:\n- task_11: Check the grade.\n- task_6: Call the insurance desk.\n- task_3: Refill your water bottle.\n- task_7: Carry the prescription receipt.\n- task_1: Drop off the sample slip.\n- task_2: Pay the co-op dues.\n- task_8: Email the room change note.\n- task_23: Collect the reserve reading.\n- task_17: Move money.\n- task_15: Take asthma medication at 21:00.\n- task_18: Take antibiotic at dinner.\n- task_9: Take asthma medication at 11:00.\n- task_5: Straighten the couch pillows.\n- task_12: Pick up the handout packet.\n- task_21: Move the blanket off the chair."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_1\"],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You clear a little space, glance at the pharmacy receipt, and keep the afternoon together.\nA) Order lunch\nB) Sit down\nC) Tidy your bag\n\nStep action menu:\n- task_2: Pay the co-op dues.\n- task_11: Check the grade.\n- task_15: Take asthma medication at 21:00.\n- task_7: Carry the prescription receipt.\n- task_12: Pick up the handout packet.\n- task_23: Collect the reserve reading.\n- task_6: Call the insurance desk.\n- task_17: Move money.\n- task_4: Skim the headlines.\n- task_18: Take antibiotic at dinner.\n- task_8: Email the room change note.\n- task_9: Take asthma medication at 11:00.\n- task_5: Straighten the couch pillows.\n- task_21: Move the blanket off the chair."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "Your lab cubby has the handout packet tucked inside it.\nA) Open the app\nB) Flag it for later\nC) Keep your place in line\n\nStep action menu:\n- task_2: Pay the co-op dues.\n- task_6: Call the insurance desk.\n- task_3: Refill your water bottle.\n- task_23: Collect the reserve reading.\n- task_11: Check the grade.\n- task_21: Move the blanket off the chair.\n- task_14: Call a friend.\n- task_17: Move money.\n- task_18: Take antibiotic at dinner.\n- task_8: Email the room change note.\n- task_7: Carry the prescription receipt.\n- task_9: Take asthma medication at 11:00.\n- task_12: Pick up the handout packet.\n- task_15: Take asthma medication at 21:00."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_12\",\"task_8\"],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You clear a little space, glance at the loose receipt, and keep the afternoon together.\nA) Step outside\nB) Stretch your shoulders\nC) Read the sign\n\nStep action menu:\n- task_2: Pay the co-op dues.\n- task_6: Call the insurance desk.\n- task_23: Collect the reserve reading.\n- task_15: Take asthma medication at 21:00.\n- task_4: Skim the headlines.\n- task_21: Move the blanket off the chair.\n- task_18: Take antibiotic at dinner.\n- task_17: Move money.\n- task_9: Take asthma medication at 11:00.\n- task_5: Straighten the couch pillows.\n- task_11: Check the grade.\n- task_7: Carry the prescription receipt."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You keep in mind that your balance might dip later.\nA) Clear a spot\nB) Lean on the counter\nC) Check your messages\n\nStep action menu:\n- task_2: Pay the co-op dues.\n- task_20: Wipe down the counter.\n- task_9: Take asthma medication at 11:00.\n- task_16: Clear old downloads.\n- task_11: Check the grade.\n- task_18: Take antibiotic at dinner.\n- task_6: Call the insurance desk.\n- task_7: Carry the prescription receipt.\n- task_15: Take asthma medication at 21:00.\n- task_17: Move money.\n- task_23: Collect the reserve reading.\n- task_14: Call a friend."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"query_state\",\"choice\":\"NONE\",\"task_ids\":[],\"channel\":\"bank_balance\"}"
+        },
+        {
+          "role": "user",
+          "content": "State [bank_balance]: Balance check: $220."
+        },
+        {
+          "role": "assistant",
+          "content": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[],\"channel\":\"NONE\"}"
+        },
+        {
+          "role": "user",
+          "content": "You make dinner while trying not to lose track of the rest of the evening.\nA) Pull up a list\nB) Take a sip of water\nC) Look for a pen\n\nStep action menu:\n- task_6: Call the insurance desk.\n- task_20: Wipe down the counter.\n- task_7: Carry the prescription receipt.\n- task_16: Clear old downloads.\n- task_23: Collect the reserve reading.\n- task_15: Take asthma medication at 21:00.\n- task_9: Take asthma medication at 11:00.\n- task_17: Move money.\n- task_2: Pay the co-op dues.\n- task_11: Check the grade.\n- task_4: Skim the headlines.\n- task_18: Take antibiotic at dinner."
+        }
+      ],
+      "reads": {
+        "original": null,
+        "key": {
+          "channel": "library_hold",
+          "items": [
+            {
+              "id": "library_hold_second_ready_d3",
+              "text": "Library notice: reserve reading is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ]
+        },
+        "unrelated": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_status",
+              "text": "Price check: item is $99.",
+              "value": 99,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ]
+        },
+        "second_only": {
+          "channel": "bank_balance",
+          "items": [
+            {
+              "id": "balance_low_95_d3",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ]
+        },
+        "both": [
+          {
+            "channel": "library_hold",
+            "items": [
+              {
+                "id": "library_hold_second_ready_d3",
+                "text": "Library notice: reserve reading is ready.",
+                "value": null,
+                "meta": {}
+              }
+            ]
+          },
+          {
+            "channel": "bank_balance",
+            "items": [
+              {
+                "id": "balance_low_95_d3",
+                "text": "Balance check: $92.",
+                "value": 92,
+                "meta": {
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "trials": [
+        {
+          "seed": 19,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\",\"task_23\",\"task_18\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-333579ec-63e2-90c6-abc7-48058fe86701",
+            "usage": {
+              "completion_tokens": 32,
+              "completion_tokens_details": {
+                "text_tokens": 32
+              },
+              "created": 1795009064,
+              "prompt_tokens": 3172,
+              "prompt_tokens_details": {
+                "text_tokens": 3172
+              },
+              "total_tokens": 3204
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 4748.5
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "A",
+              "task_ids": [
+                "task_17",
+                "task_23",
+                "task_18"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "balance_low_95_d3",
+              "library_hold_second_ready_d3",
+              "antibiotic_dinner"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 2,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "bank_balance",
+            "library_hold"
+          ]
+        },
+        {
+          "seed": 19,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_17\",\"task_18\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-20c472d0-0897-9c94-a90c-bd2fb64fc019",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009068,
+              "prompt_tokens": 3130,
+              "prompt_tokens_details": {
+                "text_tokens": 3130
+              },
+              "total_tokens": 3157
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 3950.3
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_17",
+                "task_18"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "balance_low_95_d3",
+              "antibiotic_dinner"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 2,
+                "late": 0,
+                "miss": 3,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "bank_balance"
+          ]
+        },
+        {
+          "seed": 41,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"B\",\"task_ids\":[\"task_17\",\"task_18\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-55f95bb4-a4cf-9ab0-a9f8-305fd2ef7890",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009072,
+              "prompt_tokens": 3130,
+              "prompt_tokens_details": {
+                "text_tokens": 3130
+              },
+              "total_tokens": 3157
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 4266.0
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "B",
+              "task_ids": [
+                "task_17",
+                "task_18"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "balance_low_95_d3",
+              "antibiotic_dinner"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 2,
+                "late": 0,
+                "miss": 3,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "bank_balance"
+          ]
+        },
+        {
+          "seed": 41,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_18\",\"task_23\",\"task_17\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-4210261f-7d68-9f91-a377-f6dcb89075d4",
+            "usage": {
+              "completion_tokens": 32,
+              "completion_tokens_details": {
+                "text_tokens": 32
+              },
+              "created": 1795009075,
+              "prompt_tokens": 3172,
+              "prompt_tokens_details": {
+                "text_tokens": 3172
+              },
+              "total_tokens": 3204
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 2642.6
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "A",
+              "task_ids": [
+                "task_18",
+                "task_23",
+                "task_17"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "antibiotic_dinner",
+              "library_hold_second_ready_d3",
+              "balance_low_95_d3"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 2,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "library_hold",
+            "bank_balance"
+          ]
+        },
+        {
+          "seed": 67,
+          "arm": "both",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\",\"task_23\",\"task_18\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-fd25fdf8-fa27-99e4-98ef-b5f1f1c09ce8",
+            "usage": {
+              "completion_tokens": 32,
+              "completion_tokens_details": {
+                "text_tokens": 32
+              },
+              "created": 1795009079,
+              "prompt_tokens": 3172,
+              "prompt_tokens_details": {
+                "text_tokens": 3172
+              },
+              "total_tokens": 3204
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 3885.5
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": true,
+            "action": {
+              "action": "choose",
+              "choice": "A",
+              "task_ids": [
+                "task_17",
+                "task_23",
+                "task_18"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "balance_low_95_d3",
+              "library_hold_second_ready_d3",
+              "antibiotic_dinner"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7428571428571429,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 3,
+                "late": 0,
+                "miss": 2,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "bank_balance",
+            "library_hold"
+          ]
+        },
+        {
+          "seed": 67,
+          "arm": "second_only",
+          "response": {
+            "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_18\",\"task_17\"],\"channel\":\"NONE\"}",
+            "actual_model": "qwen3.5-27b",
+            "request_id": "chatcmpl-7621188c-a58c-95f2-b0fe-9a7f4998c566",
+            "usage": {
+              "completion_tokens": 27,
+              "completion_tokens_details": {
+                "text_tokens": 27
+              },
+              "created": 1795009082,
+              "prompt_tokens": 3130,
+              "prompt_tokens_details": {
+                "text_tokens": 3130
+              },
+              "total_tokens": 3157
+            },
+            "retry_errors": [],
+            "finish_reason": "stop",
+            "wall_ms": 3419.7
+          },
+          "evaluation": {
+            "error": null,
+            "target_action": false,
+            "action": {
+              "action": "choose",
+              "choice": "A",
+              "task_ids": [
+                "task_18",
+                "task_17"
+              ],
+              "channel": "NONE"
+            },
+            "task_ids": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "extra_actions": [],
+            "other_due_actions": [
+              "antibiotic_dinner",
+              "balance_low_95_d3"
+            ],
+            "archived_suffix_replay": {
+              "set_f1": 0.7338129496402878,
+              "false_alarms": 5,
+              "day_monitoring_required": {
+                "hit": 2,
+                "late": 0,
+                "miss": 3,
+                "total": 5
+              }
+            }
+          },
+          "read_order": [
+            "bank_balance"
+          ]
+        }
+      ],
+      "secondary_target": "balance_low_95_d3"
+    }
+  ]
+}

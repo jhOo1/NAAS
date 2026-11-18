@@ -16,6 +16,7 @@ WINDOWS = {
     "d2_s8": "calendar_call_move_d2",
     "d3_s9": "library_hold_second_ready_d3",
 }
+SECONDARY_TARGETS = {"d1_s5": "send_library_email_1_d1", "d3_s9": "balance_low_95_d3"}
 ARMS = ("original", "key", "unrelated")
 CONTROL = "price_tracker"
 CHOOSE_INSTRUCTION = "Finish this step with the native choose JSON using task handles. No further queries at this step."
@@ -37,12 +38,13 @@ def query_turn(bench, channel, items):
     return [query_message(channel), {"role": "user", "content": result}]
 
 
-def build_frames(bench, scenario, actions):
+def build_frames(bench, scenario, actions, dual_evidence=False):
     frames = []
+    windows = {step: WINDOWS[step] for step in SECONDARY_TARGETS} if dual_evidence else WINDOWS
     updates = bench.build_updates_by_day(scenario)
     for day in scenario["days"]:
         name = day["name"]
-        if not any(step["id"] in WINDOWS for step in day["steps"]):
+        if not any(step["id"] in windows for step in day["steps"]):
             continue
         next_header = "\n".join([f"=== {name} ===", *day.get("start_instructions", [])])
         history = [{"role": "system", "content": bench.build_llm_system_prompt(False, bench.list_state_channels(scenario))},
@@ -61,8 +63,8 @@ def build_frames(bench, scenario, actions):
             for channel, responses in replies.items():
                 for items in responses:
                     history.extend(query_turn(bench, channel, items))
-            if step["id"] in WINDOWS:
-                target = WINDOWS[step["id"]]
+            if step["id"] in windows:
+                target = windows[step["id"]]
                 current = states[target]["current"]
                 channel = bench.required_monitor_channel(current)
                 if (target not in due or target in bench.normalize_task_ids(archived)
@@ -75,15 +77,35 @@ def build_frames(bench, scenario, actions):
                          "menu": menu_ids, "original_action": archived, "common_messages": history.copy(),
                          "reads": {"original": None, "key": {"channel": channel, "items": positive},
                                    "unrelated": {"channel": CONTROL, "items": negative}}, "trials": []}
+                if dual_evidence:
+                    secondary = SECONDARY_TARGETS[step["id"]]
+                    secondary_state = states[secondary]["current"]
+                    second_channel = bench.required_monitor_channel(secondary_state)
+                    if secondary not in due or second_channel == channel or second_channel in replies:
+                        raise ValueError(f"Expected a second due and unread channel at {step['id']}")
+                    cue = "clock" if second_channel == "clock" else secondary_state["cue_id"]
+                    second_items = read(second_channel)
+                    if not any(item["id"] == cue for item in second_items):
+                        raise ValueError(f"Second cue is not readable at {step['id']}")
+                    second_read = {"channel": second_channel, "items": second_items}
+                    frame["secondary_target"] = secondary
+                    frame["reads"]["second_only"] = second_read
+                    frame["reads"]["both"] = [frame["reads"]["key"], second_read]
                 frames.append(frame)
             chosen = [handles[task] for task in bench.normalize_task_ids(archived) if task in handles]
             history.append({"role": "assistant", "content": compact({"action": "choose", "choice": archived["choice"],
                                                                        "task_ids": chosen, "channel": "NONE"})})
 
         day_audit(bench, scenario, day, [action for action in actions if action["day"] == name], updates[name], observe)
-    if {frame["step_id"] for frame in frames} != WINDOWS.keys():
+    if {frame["step_id"] for frame in frames} != windows.keys():
         raise ValueError("Missing frozen diagnostic windows")
     return frames
+
+
+def added_reads(read):
+    if read is None:
+        return []
+    return read if isinstance(read, list) else [read]
 
 
 def score_action(bench, scenario, actions, frame, read, text):
@@ -101,8 +123,8 @@ def score_action(bench, scenario, actions, frame, read, text):
         return {"error": str(error), "target_action": False}
     task_ids = [frame["menu"][handle] for handle in handles]
     queries = bench.get_action_state_query_counts(frame["original_action"])
-    if read is not None:
-        channel = read["channel"]
+    for observed in added_reads(read):
+        channel = observed["channel"]
         queries[channel] = queries.get(channel, 0) + 1
     replacement = {**frame["original_action"], "choice": result["choice"], "task_ids": task_ids,
                    "state_queries": queries, "check_time": queries.get("clock", 0)}
@@ -126,9 +148,13 @@ def main():
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--review-menu", action="store_true",
                         help="Add an explicit review instruction, with the same key response and one actor request")
+    parser.add_argument("--dual-evidence", action="store_true",
+                        help="Run the second-only and both-cue cells for two already exposed windows")
     args = parser.parse_args()
     if args.output.exists() != args.resume:
         parser.error("Use a new output path, or --resume an existing experiment")
+    if args.dual_evidence and args.review_menu:
+        parser.error("Select either a menu review or a dual-evidence intervention")
     upstream = args.upstream.resolve()
     revision = subprocess.check_output(["git", "-C", str(upstream), "rev-parse", "HEAD"], text=True).strip()
     if revision != REVISION:
@@ -140,7 +166,8 @@ def main():
     actions = bench.read_log(args.archive)
     score, _, _ = bench.score_log(scenario, actions)
     result = {"upstream": revision, "archive": args.archive.name, "archive_score": score,
-              "model": MODEL, "seeds": list(SEEDS), "sampling": SAMPLING, "frames": build_frames(bench, scenario, actions)}
+              "model": MODEL, "seeds": list(SEEDS), "sampling": SAMPLING,
+              "frames": build_frames(bench, scenario, actions, args.dual_evidence)}
     if args.review_menu:
         result["actor_addendum"] = MENU_REVIEW
     if args.resume:
@@ -156,21 +183,29 @@ def main():
         completed = {(item["seed"], item["arm"]) for item in frame["trials"]}
         for seed in SEEDS:
             arms = ["key"] if args.review_menu else list(ARMS)
+            if args.dual_evidence:
+                arms = ["second_only", "both"]
             random.Random(seed).shuffle(arms)
             for arm in arms:
                 if (seed, arm) in completed:
                     continue
                 messages = frame["common_messages"].copy()
-                read = frame["reads"][arm]
-                if read is not None:
+                reads = added_reads(frame["reads"][arm]).copy()
+                if args.dual_evidence:
+                    # Alternate result order using the paired seeds without modifying the responses.
+                    random.Random(seed).shuffle(reads)
+                for read in reads:
                     messages.extend(query_turn(bench, read["channel"], read["items"]))
                 instruction = CHOOSE_INSTRUCTION
                 if args.review_menu:
                     instruction += " " + MENU_REVIEW
                 messages.append({"role": "user", "content": instruction})
                 response = sample(api, messages, seed)
-                evaluation = score_action(bench, scenario, actions, frame, read, response["raw_output"])
-                frame["trials"].append({"seed": seed, "arm": arm, "response": response, "evaluation": evaluation})
+                evaluation = score_action(bench, scenario, actions, frame, reads, response["raw_output"])
+                trial = {"seed": seed, "arm": arm, "response": response, "evaluation": evaluation}
+                if args.dual_evidence:
+                    trial["read_order"] = [read["channel"] for read in reads]
+                frame["trials"].append(trial)
                 save_artifact(args.output, result)
                 print(frame["step_id"], seed, arm, evaluation["target_action"], evaluation["error"], flush=True)
 
