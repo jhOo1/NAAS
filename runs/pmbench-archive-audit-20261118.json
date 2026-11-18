@@ -1,0 +1,3224 @@
+{
+  "upstream": "e1093c470c8981daf522d4ef047a7c3a71e077d7",
+  "scenario": "synthetic_week_v9",
+  "source": "official archived action/query counts; query results reconstructed once per recorded call",
+  "runs": [
+    {
+      "log": "single-baseline-gpt-54-v9-20260326-210442.jsonl",
+      "model": "openai/gpt-5.4",
+      "official": {
+        "steps": 80,
+        "state_queries": 9,
+        "set_f1": 0.7246376811594203,
+        "false_alarms": 5,
+        "monitoring_required": {
+          "hit": 12,
+          "late": 2,
+          "miss": 25,
+          "total": 39
+        },
+        "monitoring_not_required": {
+          "hit": 38,
+          "late": 0,
+          "miss": 4,
+          "total": 42
+        }
+      },
+      "audited_due_opportunities": 39,
+      "by_class": {
+        "hit_with_cue": 4,
+        "readable_cue_absent_no_action": 27,
+        "hit_without_cue_at_due_step": 8
+      },
+      "opportunities": [
+        {
+          "day": "Monday",
+          "step_id": "d1_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You know you still have to send the library email today.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:00 | Stopwatch: 220 min",
+                "value": "11:00",
+                "meta": {
+                  "day": "Monday",
+                  "stopwatch_min": 220
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 220 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 220
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "appointment_form_ready_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_form_ready_d1",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "send_library_email_1_d1",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 270 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 270
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s7",
+          "time": "13:00",
+          "task": "appointment_reschedule_open_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_reschedule_open_d1",
+          "visible_event": "The parking receipt kiosk near the clinic is blinking again. A follow-up text comes in with the final location.",
+          "queried": {},
+          "chosen_tasks": [
+            "parking_receipt_kiosk_d1",
+            "hardware_counter_d1"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            },
+            {
+              "id": "appointment_reschedule_open_d1",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s10",
+          "time": "19:10",
+          "task": "library_hold_ready_d1",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d1",
+          "visible_event": "The library return slot is open as you walk by.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d1",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You brush your teeth, check that the referral slip is still where you need it, and head to bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 820 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 820
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s2",
+          "time": "08:20",
+          "task": "calendar_room_shift_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_room_shift_d2",
+          "visible_event": "You still need to check in with your manager later.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_room_shift_d2",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s5",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The conference room screen flashes your room assignment.",
+          "queried": {},
+          "chosen_tasks": [
+            "conference_screen_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "calendar_call_move_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_call_move_d2",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "send_budget_note_2_d2",
+            "check_in_manager_1_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_room_shift_d2",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            },
+            {
+              "id": "calendar_call_move_d2",
+              "text": "Calendar update: check-in moved later today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "check_in_manager_1_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "send_budget_note_2_d2",
+            "check_in_manager_1_d2"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 15:55 | Stopwatch: 485 min",
+                "value": "15:55",
+                "meta": {
+                  "day": "Tuesday",
+                  "stopwatch_min": 485
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "send_budget_note_2_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "send_budget_note_2_d2",
+            "check_in_manager_1_d2"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 15:55 | Stopwatch: 485 min",
+                "value": "15:55",
+                "meta": {
+                  "day": "Tuesday",
+                  "stopwatch_min": 485
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s9",
+          "time": "16:15",
+          "task": "email_vendor_reply_d2",
+          "channel": "email",
+          "cue_id": "email_vendor_reply_d2",
+          "visible_event": "Your manager pauses at the doorway on the way to another meeting.",
+          "queried": {},
+          "chosen_tasks": [
+            "manager_door_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_vendor_reply_d2",
+              "text": "New email: vendor sent the updated reply.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the note on your phone down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to pay the co-op dues. You suspect the course portal could change again later. You jot down a quick reminder: On Thursday, Carry the spare tote bag when you notice the parcel counter.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s4",
+          "time": "11:50",
+          "task": "course_grade_released_d3",
+          "channel": "course_portal",
+          "cue_id": "course_grade_released_d3",
+          "visible_event": "You notice the lab drop box is unlocked for afternoon drop-offs. A short cancellation note about calling the insurance desk shows up on your phone. A quick message clears it: you do not need to worry about calling the insurance desk today.",
+          "queried": {},
+          "chosen_tasks": [
+            "lab_dropbox_d3"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "course_grade_released_d3",
+              "text": "Course portal: grade released.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "balance_low_95_d3",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d3",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "library_hold_second_ready_d3",
+          "channel": "library_hold",
+          "cue_id": "library_hold_second_ready_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_second_ready_d3",
+              "text": "Library notice: reserve reading is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s10",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the pharmacy receipt into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "crossday_5",
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "shipment_out_for_delivery_d4",
+          "channel": "shipment_status",
+          "cue_id": "shipment_out_for_delivery_d4",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "crossday_5",
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "shipment_out_for_delivery_d4",
+              "text": "Delivery status: out for delivery.",
+              "value": null,
+              "meta": {
+                "phase": "complete"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s10",
+          "time": "20:40",
+          "task": "confirm_pickup_window_1_d4",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "Dinner happens right in the middle of the evening's cleanup and catch-up.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 20:40 | Stopwatch: 755 min",
+              "value": "20:40",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 755
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You dim the room, plug in your phone, and leave the insurance card for tomorrow.",
+          "queried": {},
+          "chosen_tasks": [
+            "confirm_pickup_window_1_d4",
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s1",
+          "time": "08:05",
+          "task": "pay_parking_app_2_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You start with breakfast and a quick scan of what the day might turn into. You mean to pay the parking app balance once things settle down.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_breakfast"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 08:05 | Stopwatch: 0 min",
+              "value": "08:05",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 0
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You add a reminder to yourself: On Saturday, Bring the pickup code when you notice the package locker light.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:00 | Stopwatch: 175 min",
+                "value": "11:00",
+                "meta": {
+                  "day": "Friday",
+                  "stopwatch_min": 175
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s6",
+          "time": "11:50",
+          "task": "check_transit_times_1_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You may get a library notice later today.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 225 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 225
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s10",
+          "time": "18:50",
+          "task": "email_receipt_note_d5",
+          "channel": "email",
+          "cue_id": "email_receipt_note_d5",
+          "visible_event": "The storage cage has been left open for deliveries again.",
+          "queried": {},
+          "chosen_tasks": [
+            "storage_cage_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_receipt_note_d5",
+              "text": "New email: purchase confirmation received.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s11",
+          "time": "20:40",
+          "task": "library_hold_ready_d5",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d5",
+          "visible_event": "Dinner is mostly a marker that the day has tilted into evening. A confirmation email comes in with the final details.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner",
+            "email_receipt_note_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d5",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the tote bag into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "submit_timesheet_1_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s4",
+          "time": "11:50",
+          "task": "email_vendor_2_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The doorbell camera flashes while you're still nearby. For a moment, you have a feeling the calendar may shift again before the day is over.",
+          "queried": {},
+          "chosen_tasks": [
+            "crossday_3",
+            "doorbell_camera_flash_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 210 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 210
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s5",
+          "time": "14:10",
+          "task": "calendar_new_block_d6",
+          "channel": "calendar",
+          "cue_id": "calendar_new_block_d6",
+          "visible_event": "The loading dock sign is pointing to a temporary pickup spot today.",
+          "queried": {},
+          "chosen_tasks": [
+            "loading_dock_sign_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_new_block_d6",
+              "text": "Calendar update: new block added for today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s6",
+          "time": "16:30",
+          "task": "appointment_slot_open_d6",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_slot_open_d6",
+          "visible_event": "A tube-shaped package is sitting alone on the mailroom shelf.",
+          "queried": {},
+          "chosen_tasks": [
+            "mailroom_shelf_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_slot_open_d6",
+              "text": "Appointment portal: a slot opened.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s9",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You turn down the lights, leave the insurance card out for tomorrow, and settle in for the night.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 760 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 760
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "For a moment, you keep in mind that your balance might dip later.",
+          "queried": {
+            "bank_balance": 1
+          },
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s5",
+          "time": "13:00",
+          "task": "check_lab_portal_2_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The seminar sign has today's room scribbled in the corner.",
+          "queried": {},
+          "chosen_tasks": [
+            "seminar_sign_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 13:00 | Stopwatch: 295 min",
+              "value": "13:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 295
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s7",
+          "time": "16:15",
+          "task": "balance_low_95_d7",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d7",
+          "visible_event": "You look over the note on your phone, send one quick reply, and move on.",
+          "queried": {},
+          "chosen_tasks": [
+            "check_lab_portal_2_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d7",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "review_lab_notes_1_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        }
+      ]
+    },
+    {
+      "log": "heartbeat-auto-30m-gpt-54-v9-20260326-213240.jsonl",
+      "model": "openai/gpt-5.4",
+      "official": {
+        "steps": 80,
+        "state_queries": 36,
+        "set_f1": 0.7412587412587412,
+        "false_alarms": 5,
+        "monitoring_required": {
+          "hit": 18,
+          "late": 4,
+          "miss": 17,
+          "total": 39
+        },
+        "monitoring_not_required": {
+          "hit": 35,
+          "late": 0,
+          "miss": 7,
+          "total": 42
+        }
+      },
+      "audited_due_opportunities": 39,
+      "by_class": {
+        "hit_with_cue": 8,
+        "readable_cue_absent_no_action": 21,
+        "hit_without_cue_at_due_step": 10
+      },
+      "opportunities": [
+        {
+          "day": "Monday",
+          "step_id": "d1_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You know you still have to send the library email today.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:00 | Stopwatch: 220 min",
+                "value": "11:00",
+                "meta": {
+                  "day": "Monday",
+                  "stopwatch_min": 220
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 220 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 220
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "appointment_form_ready_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_form_ready_d1",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "send_library_email_1_d1",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 270 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 270
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s7",
+          "time": "13:00",
+          "task": "appointment_reschedule_open_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_reschedule_open_d1",
+          "visible_event": "The parking receipt kiosk near the clinic is blinking again. A follow-up text comes in with the final location.",
+          "queried": {},
+          "chosen_tasks": [
+            "parking_receipt_kiosk_d1",
+            "hardware_counter_d1"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            },
+            {
+              "id": "appointment_reschedule_open_d1",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s10",
+          "time": "19:10",
+          "task": "library_hold_ready_d1",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d1",
+          "visible_event": "The library return slot is open as you walk by.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d1",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You brush your teeth, check that the referral slip is still where you need it, and head to bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 820 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 820
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s2",
+          "time": "08:20",
+          "task": "calendar_room_shift_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_room_shift_d2",
+          "visible_event": "You still need to check in with your manager later.",
+          "queried": {
+            "clock": 1,
+            "calendar": 1,
+            "email": 1
+          },
+          "chosen_tasks": [
+            "calendar_room_shift_d2"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "calendar_room_shift_d2",
+                "text": "Calendar update: room changed for this afternoon.",
+                "value": null,
+                "meta": {}
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "calendar_room_shift_d2",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s5",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The conference room screen flashes your room assignment.",
+          "queried": {},
+          "chosen_tasks": [
+            "conference_screen_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "calendar_call_move_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_call_move_d2",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_in_manager_1_d2",
+            "send_budget_note_2_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_call_move_d2",
+              "text": "Calendar update: check-in moved later today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "check_in_manager_1_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_in_manager_1_d2",
+            "send_budget_note_2_d2"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 15:55 | Stopwatch: 485 min",
+                "value": "15:55",
+                "meta": {
+                  "day": "Tuesday",
+                  "stopwatch_min": 485
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "send_budget_note_2_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_in_manager_1_d2",
+            "send_budget_note_2_d2"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 15:55 | Stopwatch: 485 min",
+                "value": "15:55",
+                "meta": {
+                  "day": "Tuesday",
+                  "stopwatch_min": 485
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s9",
+          "time": "16:15",
+          "task": "email_vendor_reply_d2",
+          "channel": "email",
+          "cue_id": "email_vendor_reply_d2",
+          "visible_event": "Your manager pauses at the doorway on the way to another meeting.",
+          "queried": {},
+          "chosen_tasks": [
+            "manager_door_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_vendor_reply_d2",
+              "text": "New email: vendor sent the updated reply.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the note on your phone down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to pay the co-op dues. You suspect the course portal could change again later. You jot down a quick reminder: On Thursday, Carry the spare tote bag when you notice the parcel counter.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:00 | Stopwatch: 190 min",
+                "value": "11:00",
+                "meta": {
+                  "day": "Wednesday",
+                  "stopwatch_min": 190
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s4",
+          "time": "11:50",
+          "task": "course_grade_released_d3",
+          "channel": "course_portal",
+          "cue_id": "course_grade_released_d3",
+          "visible_event": "You notice the lab drop box is unlocked for afternoon drop-offs. A short cancellation note about calling the insurance desk shows up on your phone. A quick message clears it: you do not need to worry about calling the insurance desk today.",
+          "queried": {},
+          "chosen_tasks": [
+            "lab_dropbox_d3"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "course_grade_released_d3",
+              "text": "Course portal: grade released.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "balance_low_95_d3",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d3",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "library_hold_second_ready_d3",
+          "channel": "library_hold",
+          "cue_id": "library_hold_second_ready_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_second_ready_d3",
+              "text": "Library notice: reserve reading is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s10",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the pharmacy receipt into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "shipment_out_for_delivery_d4",
+          "channel": "shipment_status",
+          "cue_id": "shipment_out_for_delivery_d4",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "shipment_out_for_delivery_d4",
+              "text": "Delivery status: out for delivery.",
+              "value": null,
+              "meta": {
+                "phase": "complete"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s10",
+          "time": "20:40",
+          "task": "confirm_pickup_window_1_d4",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "Dinner happens right in the middle of the evening's cleanup and catch-up.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "confirm_pickup_window_1_d4"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 20:40 | Stopwatch: 755 min",
+                "value": "20:40",
+                "meta": {
+                  "day": "Thursday",
+                  "stopwatch_min": 755
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 20:40 | Stopwatch: 755 min",
+              "value": "20:40",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 755
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You dim the room, plug in your phone, and leave the insurance card for tomorrow.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s1",
+          "time": "08:05",
+          "task": "pay_parking_app_2_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You start with breakfast and a quick scan of what the day might turn into. You mean to pay the parking app balance once things settle down.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_breakfast"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 08:05 | Stopwatch: 0 min",
+              "value": "08:05",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 0
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You add a reminder to yourself: On Saturday, Bring the pickup code when you notice the package locker light.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:00 | Stopwatch: 175 min",
+                "value": "11:00",
+                "meta": {
+                  "day": "Friday",
+                  "stopwatch_min": 175
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s6",
+          "time": "11:50",
+          "task": "check_transit_times_1_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You may get a library notice later today.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_transit_times_1_d5"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:50 | Stopwatch: 225 min",
+                "value": "11:50",
+                "meta": {
+                  "day": "Friday",
+                  "stopwatch_min": 225
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 225 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 225
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s10",
+          "time": "18:50",
+          "task": "email_receipt_note_d5",
+          "channel": "email",
+          "cue_id": "email_receipt_note_d5",
+          "visible_event": "The storage cage has been left open for deliveries again.",
+          "queried": {},
+          "chosen_tasks": [
+            "storage_cage_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_receipt_note_d5",
+              "text": "New email: purchase confirmation received.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s11",
+          "time": "20:40",
+          "task": "library_hold_ready_d5",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d5",
+          "visible_event": "Dinner is mostly a marker that the day has tilted into evening. A confirmation email comes in with the final details.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner",
+            "email_receipt_note_d5",
+            "dry_cleaner_rack_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d5",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the tote bag into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_1100",
+            "submit_timesheet_1_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "submit_timesheet_1_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_1100",
+            "submit_timesheet_1_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s4",
+          "time": "11:50",
+          "task": "email_vendor_2_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The doorbell camera flashes while you're still nearby. For a moment, you have a feeling the calendar may shift again before the day is over.",
+          "queried": {},
+          "chosen_tasks": [
+            "doorbell_camera_flash_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 210 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 210
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s5",
+          "time": "14:10",
+          "task": "calendar_new_block_d6",
+          "channel": "calendar",
+          "cue_id": "calendar_new_block_d6",
+          "visible_event": "The loading dock sign is pointing to a temporary pickup spot today.",
+          "queried": {},
+          "chosen_tasks": [
+            "loading_dock_sign_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_new_block_d6",
+              "text": "Calendar update: new block added for today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s6",
+          "time": "16:30",
+          "task": "appointment_slot_open_d6",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_slot_open_d6",
+          "visible_event": "A tube-shaped package is sitting alone on the mailroom shelf.",
+          "queried": {},
+          "chosen_tasks": [
+            "email_vendor_2_d6",
+            "mailroom_shelf_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_slot_open_d6",
+              "text": "Appointment portal: a slot opened.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s9",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You turn down the lights, leave the insurance card out for tomorrow, and settle in for the night.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 760 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 760
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "For a moment, you keep in mind that your balance might dip later.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s5",
+          "time": "13:00",
+          "task": "check_lab_portal_2_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The seminar sign has today's room scribbled in the corner.",
+          "queried": {},
+          "chosen_tasks": [
+            "seminar_sign_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 13:00 | Stopwatch: 295 min",
+              "value": "13:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 295
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s7",
+          "time": "16:15",
+          "task": "balance_low_95_d7",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d7",
+          "visible_event": "You look over the note on your phone, send one quick reply, and move on.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_lab_portal_2_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d7",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "review_lab_notes_1_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        }
+      ]
+    },
+    {
+      "log": "heartbeat-auto-60m-gpt-54-v9-20260326-220120.jsonl",
+      "model": "openai/gpt-5.4",
+      "official": {
+        "steps": 80,
+        "state_queries": 23,
+        "set_f1": 0.6382978723404256,
+        "false_alarms": 10,
+        "monitoring_required": {
+          "hit": 10,
+          "late": 5,
+          "miss": 24,
+          "total": 39
+        },
+        "monitoring_not_required": {
+          "hit": 35,
+          "late": 0,
+          "miss": 7,
+          "total": 42
+        }
+      },
+      "audited_due_opportunities": 39,
+      "by_class": {
+        "readable_cue_absent_no_action": 29,
+        "hit_with_cue": 1,
+        "hit_without_cue_at_due_step": 9
+      },
+      "opportunities": [
+        {
+          "day": "Monday",
+          "step_id": "d1_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You know you still have to send the library email today.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 220 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 220
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "appointment_form_ready_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_form_ready_d1",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100",
+            "send_library_email_1_d1"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s5",
+          "time": "11:50",
+          "task": "send_library_email_1_d1",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You clear a little space, glance at the referral slip, and keep the afternoon together.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "asthma_1100",
+            "send_library_email_1_d1"
+          ],
+          "replayed_required_replies": [
+            [
+              {
+                "id": "clock",
+                "text": "Time 11:50 | Stopwatch: 270 min",
+                "value": "11:50",
+                "meta": {
+                  "day": "Monday",
+                  "stopwatch_min": 270
+                }
+              }
+            ]
+          ],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 270 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 270
+              }
+            }
+          ],
+          "classification": "hit_with_cue"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s7",
+          "time": "13:00",
+          "task": "appointment_reschedule_open_d1",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_reschedule_open_d1",
+          "visible_event": "The parking receipt kiosk near the clinic is blinking again. A follow-up text comes in with the final location.",
+          "queried": {},
+          "chosen_tasks": [
+            "parking_receipt_kiosk_d1",
+            "hardware_counter_d1"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_form_ready_d1",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            },
+            {
+              "id": "appointment_reschedule_open_d1",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s10",
+          "time": "19:10",
+          "task": "library_hold_ready_d1",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d1",
+          "visible_event": "The library return slot is open as you walk by.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d1",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Monday",
+          "step_id": "d1_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You brush your teeth, check that the referral slip is still where you need it, and head to bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 820 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Monday",
+                "stopwatch_min": 820
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s2",
+          "time": "08:20",
+          "task": "calendar_room_shift_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_room_shift_d2",
+          "visible_event": "You still need to check in with your manager later.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_room_shift_d2",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s5",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The conference room screen flashes your room assignment.",
+          "queried": {},
+          "chosen_tasks": [
+            "conference_screen_d2",
+            "asthma_1100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "calendar_call_move_d2",
+          "channel": "calendar",
+          "cue_id": "calendar_call_move_d2",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_room_shift_d2",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            },
+            {
+              "id": "calendar_call_move_d2",
+              "text": "Calendar update: check-in moved later today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "check_in_manager_1_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s8",
+          "time": "15:55",
+          "task": "send_budget_note_2_d2",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to send the budget note.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 15:55 | Stopwatch: 485 min",
+              "value": "15:55",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 485
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s9",
+          "time": "16:15",
+          "task": "email_vendor_reply_d2",
+          "channel": "email",
+          "cue_id": "email_vendor_reply_d2",
+          "visible_event": "Your manager pauses at the doorway on the way to another meeting.",
+          "queried": {},
+          "chosen_tasks": [
+            "manager_door_d2"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_vendor_reply_d2",
+              "text": "New email: vendor sent the updated reply.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Tuesday",
+          "step_id": "d2_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the note on your phone down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Tuesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You keep meaning to pay the co-op dues. You suspect the course portal could change again later. You jot down a quick reminder: On Thursday, Carry the spare tote bag when you notice the parcel counter.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 190 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 190
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s4",
+          "time": "11:50",
+          "task": "course_grade_released_d3",
+          "channel": "course_portal",
+          "cue_id": "course_grade_released_d3",
+          "visible_event": "You notice the lab drop box is unlocked for afternoon drop-offs. A short cancellation note about calling the insurance desk shows up on your phone. A quick message clears it: you do not need to worry about calling the insurance desk today.",
+          "queried": {},
+          "chosen_tasks": [
+            "lab_dropbox_d3"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "course_grade_released_d3",
+              "text": "Course portal: grade released.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "balance_low_95_d3",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d3",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s9",
+          "time": "19:10",
+          "task": "library_hold_second_ready_d3",
+          "channel": "library_hold",
+          "cue_id": "library_hold_second_ready_d3",
+          "visible_event": "You make dinner while trying not to lose track of the rest of the evening.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_second_ready_d3",
+              "text": "Library notice: reserve reading is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Wednesday",
+          "step_id": "d3_s10",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the pharmacy receipt into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 790 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Wednesday",
+                "stopwatch_min": 790
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s3",
+          "time": "11:00",
+          "task": "shipment_out_for_delivery_d4",
+          "channel": "shipment_status",
+          "cue_id": "shipment_out_for_delivery_d4",
+          "visible_event": "The parcel counter has a line, but your package is visible behind it.",
+          "queried": {},
+          "chosen_tasks": [
+            "parcel_counter_d4"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "shipment_out_for_delivery_d4",
+              "text": "Delivery status: out for delivery.",
+              "value": null,
+              "meta": {
+                "phase": "complete"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s10",
+          "time": "20:40",
+          "task": "confirm_pickup_window_1_d4",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "Dinner happens right in the middle of the evening's cleanup and catch-up.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 20:40 | Stopwatch: 755 min",
+              "value": "20:40",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 755
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Thursday",
+          "step_id": "d4_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You dim the room, plug in your phone, and leave the insurance card for tomorrow.",
+          "queried": {},
+          "chosen_tasks": [
+            "confirm_pickup_window_1_d4",
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Thursday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s1",
+          "time": "08:05",
+          "task": "pay_parking_app_2_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You start with breakfast and a quick scan of what the day might turn into. You mean to pay the parking app balance once things settle down.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_breakfast"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 08:05 | Stopwatch: 0 min",
+              "value": "08:05",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 0
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s4",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You add a reminder to yourself: On Saturday, Bring the pickup code when you notice the package locker light.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s6",
+          "time": "11:50",
+          "task": "check_transit_times_1_d5",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You may get a library notice later today.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 225 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 225
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s10",
+          "time": "18:50",
+          "task": "email_receipt_note_d5",
+          "channel": "email",
+          "cue_id": "email_receipt_note_d5",
+          "visible_event": "The storage cage has been left open for deliveries again.",
+          "queried": {},
+          "chosen_tasks": [
+            "storage_cage_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "email_receipt_note_d5",
+              "text": "New email: purchase confirmation received.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s11",
+          "time": "20:40",
+          "task": "library_hold_ready_d5",
+          "channel": "library_hold",
+          "cue_id": "library_hold_ready_d5",
+          "visible_event": "Dinner is mostly a marker that the day has tilted into evening. A confirmation email comes in with the final details.",
+          "queried": {},
+          "chosen_tasks": [
+            "antibiotic_dinner",
+            "email_receipt_note_d5",
+            "dry_cleaner_rack_d5"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "library_hold_ready_d5",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Friday",
+          "step_id": "d5_s12",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You set out tomorrow's things, move the tote bag into place, and head toward bed.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Friday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s3",
+          "time": "11:00",
+          "task": "submit_timesheet_1_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "An updated time for email the vendor comes through. You keep submit the timesheet in the back of your mind. A reschedule note lands for email the vendor: move it to 11:50.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 160 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 160
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s4",
+          "time": "11:50",
+          "task": "email_vendor_2_d6",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The doorbell camera flashes while you're still nearby. For a moment, you have a feeling the calendar may shift again before the day is over.",
+          "queried": {},
+          "chosen_tasks": [
+            "doorbell_camera_flash_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:50 | Stopwatch: 210 min",
+              "value": "11:50",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 210
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s5",
+          "time": "14:10",
+          "task": "calendar_new_block_d6",
+          "channel": "calendar",
+          "cue_id": "calendar_new_block_d6",
+          "visible_event": "The loading dock sign is pointing to a temporary pickup spot today.",
+          "queried": {},
+          "chosen_tasks": [
+            "loading_dock_sign_d6",
+            "asthma_1100",
+            "submit_timesheet_1_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "calendar_new_block_d6",
+              "text": "Calendar update: new block added for today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s6",
+          "time": "16:30",
+          "task": "appointment_slot_open_d6",
+          "channel": "appointment_portal",
+          "cue_id": "appointment_slot_open_d6",
+          "visible_event": "A tube-shaped package is sitting alone on the mailroom shelf.",
+          "queried": {},
+          "chosen_tasks": [
+            "mailroom_shelf_d6"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "appointment_slot_open_d6",
+              "text": "Appointment portal: a slot opened.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Saturday",
+          "step_id": "d6_s9",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You turn down the lights, leave the insurance card out for tomorrow, and settle in for the night.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 760 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Saturday",
+                "stopwatch_min": 760
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s3",
+          "time": "11:00",
+          "task": "asthma_1100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "For a moment, you keep in mind that your balance might dip later.",
+          "queried": {},
+          "chosen_tasks": [],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 11:00 | Stopwatch: 175 min",
+              "value": "11:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 175
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s5",
+          "time": "13:00",
+          "task": "check_lab_portal_2_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "The seminar sign has today's room scribbled in the corner.",
+          "queried": {},
+          "chosen_tasks": [
+            "seminar_sign_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 13:00 | Stopwatch: 295 min",
+              "value": "13:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 295
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s7",
+          "time": "16:15",
+          "task": "balance_low_95_d7",
+          "channel": "bank_balance",
+          "cue_id": "balance_low_95_d7",
+          "visible_event": "You look over the note on your phone, send one quick reply, and move on.",
+          "queried": {
+            "clock": 1
+          },
+          "chosen_tasks": [
+            "check_lab_portal_2_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "balance_low_95_d7",
+              "text": "Balance check: $92.",
+              "value": 92,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "classification": "readable_cue_absent_no_action"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "asthma_2100",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        },
+        {
+          "day": "Sunday",
+          "step_id": "d7_s11",
+          "time": "21:00",
+          "task": "review_lab_notes_1_d7",
+          "channel": "clock",
+          "cue_id": "clock",
+          "visible_event": "You check the lock, set the handout packet down, and let the day end.",
+          "queried": {},
+          "chosen_tasks": [
+            "asthma_2100",
+            "review_lab_notes_1_d7"
+          ],
+          "replayed_required_replies": [],
+          "counterfactual_response": [
+            {
+              "id": "clock",
+              "text": "Time 21:00 | Stopwatch: 775 min",
+              "value": "21:00",
+              "meta": {
+                "day": "Sunday",
+                "stopwatch_min": 775
+              }
+            }
+          ],
+          "classification": "hit_without_cue_at_due_step"
+        }
+      ]
+    }
+  ]
+}

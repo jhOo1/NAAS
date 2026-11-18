@@ -2,8 +2,9 @@
 
 基于[指定网页对话的最后一轮方向 B](https://chatgpt.com/c/6afd60fd-dfc8-83ec-a099-939aeaa60eeb)。方法沿用该轮的名称 Task-Dependency-Aware Active Sensing（TDAAS）。
 
-**当前研究问题**　长期个人助理收到更新线索后，如何在有限预算下读到足以改变当前行动的证据？原多决策预算调度主张在 VibeLifeBench 的冻结覆盖审计中未达启动门槛。
+**当前研究问题**　长期个人助理何时检查、检查哪个状态通道，才能在有限读取预算下及时完成有隐藏触发条件的待办？
 
+- [监测主线、Benchmark、PM-Bench 归档审计与模型诊断](docs/monitoring-design.md)
 - [Qwen3.5-27B 单次自由选读基线与逐例对照](docs/free-read-20261118.md)
 - [Qwen3.5-27B 三臂模型级补证结果与复现](docs/model-pilot-20261118.md)
 - [第三轮研究设计、三项原生评分复核与补证实验协议](docs/evidence-replay.md)
