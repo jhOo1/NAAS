@@ -272,21 +272,27 @@ def execute(raw, case):
         return None, case.initial, str(error)
 
 
-def model_trial(case, arm, seed, api):
-    read = case.reads[arm]
-    request = {"model": MODEL, "messages": messages(case, read), "seed": seed, **SAMPLING}
+def sample(api, prompt, seed):
+    request = {"model": MODEL, "messages": prompt, "seed": seed, **SAMPLING}
     start = perf_counter_ns()
     response, transient = api.call(request)
     choice = response["choices"][0]
-    raw = choice["message"].get("content") or ""
-    action, state, error = execute(raw, case)
-    strict = action is not None and action["action"] == "apply" and state == case.expected
-    return {"arm": arm, "seed": seed, "tool_calls": int(read is not None),
-            "raw_output": raw, "action": action, "final_record": state, "error": error,
-            "strict_action": strict, "native": case.native_score(state, read),
+    return {"raw_output": choice["message"].get("content") or "",
             "actual_model": response["model"], "request_id": response.get("id"),
             "usage": response.get("usage"), "retry_errors": transient,
             "finish_reason": choice["finish_reason"], "wall_ms": round((perf_counter_ns() - start) / 1e6, 1)}
+
+
+def decide(case, read, seed, api):
+    reply = sample(api, messages(case, read), seed)
+    action, state, error = execute(reply["raw_output"], case)
+    strict = action is not None and action["action"] == "apply" and state == case.expected
+    return {"seed": seed, "tool_calls": int(read is not None), "action": action, "final_record": state,
+            "error": error, "strict_action": strict, "native": case.native_score(state, read), **reply}
+
+
+def model_trial(case, arm, seed, api):
+    return {"arm": arm, **decide(case, case.reads[arm], seed, api)}
 
 
 def build_cases(upstream):
