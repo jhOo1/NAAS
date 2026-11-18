@@ -60,4 +60,4 @@ python3 probe_evidence.py /path/to/VibeLifeBench
 python3 -m unittest discover -s tests -v
 ```
 
-当前已运行三个窗口的组件重放。Terrarium 端到端规划基线、模型级三臂回放和独立留出实验均未运行。
+三个窗口的组件重放已完成，后续 [Qwen3.5-27B 三臂回放](model-pilot-20261118.md)使用这三个公开窗口中的固定决策点。Terrarium 端到端规划基线和独立留出实验尚待运行。

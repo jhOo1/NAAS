@@ -42,39 +42,47 @@ def replay_updates(task, stop_event, server, apply_sql, observe):
     raise ValueError(f"Mutation not found: {stop_event}")
 
 
-def probe_departure(task, backend, service):
+def departure_booking(backend):
     route_numbers = ("CX368", "CX315", "IB6453", "AV1632")
-    flight_status = lambda: service.get_flight_status("CX368", "2026-08-14")
-    previous, latest = replay_updates(
-        task, "S19_mutation_departure_day_delay", "flight_booking", backend.apply_init_sql, flight_status
-    )
     # Hold a feasible booking fixed. This fixture stands in for earlier agent writes.
     segments = []
     for number in route_numbers:
         leg = backend.get_flight_any_date(number)
         segments.append({"flight_no": number, "origin": leg["origin"], "dest": leg["dest"],
                          "date": leg["depart_dt"][:10]})
-    booking = {"pnr": "fixture", "status": "ticketed", "segments": segments,
-               "passengers": ["LIN QIAO", "XU WEN CHENG"]}
+    return {"pnr": "fixture", "status": "ticketed", "segments": segments,
+            "passengers": ["LIN QIAO", "XU WEN CHENG"]}
+
+
+def score_departure(check, booking, note, status):
+    calls = []
+
+    def call_tool(tool, **kwargs):
+        calls.append(tool)
+        if tool == "get_flight_status":
+            assert kwargs == {"flight_no": "CX368", "date": "2026-08-14"}
+        return {"list_bookings": [{"pnr": "fixture"}], "get_booking": booking,
+                "get_flight_status": status}[tool]
+
+    def read_file(path):
+        return note if path.endswith("/incident_log.md") else ""
+
+    env = SimpleNamespace(flight_booking_mock=SimpleNamespace(call_tool=call_tool),
+                          workspace=SimpleNamespace(fs=SimpleNamespace(read_file=read_file)))
+    return {"pass": check(env), "scorer_calls": calls}
+
+
+def probe_departure(task, backend, service):
+    flight_status = lambda: service.get_flight_status("CX368", "2026-08-14")
+    previous, latest = replay_updates(
+        task, "S19_mutation_departure_day_delay", "flight_booking", backend.apply_init_sql, flight_status
+    )
+    booking = departure_booking(backend)
     name = "s19_departure_delay_response"
     check = load_checks(task, 19)[name]
 
     def score(note, status):
-        calls = []
-
-        def call_tool(tool, **kwargs):
-            calls.append(tool)
-            if tool == "get_flight_status":
-                assert kwargs == {"flight_no": "CX368", "date": "2026-08-14"}
-            return {"list_bookings": [{"pnr": "fixture"}], "get_booking": booking,
-                    "get_flight_status": status}[tool]
-
-        def read_file(path):
-            return note if path.endswith("/incident_log.md") else ""
-
-        env = SimpleNamespace(flight_booking_mock=SimpleNamespace(call_tool=call_tool),
-                              workspace=SimpleNamespace(fs=SimpleNamespace(read_file=read_file)))
-        return {"pass": check(env), "scorer_calls": calls}
+        return score_departure(check, booking, note, status)
 
     generic = "复查延误。"
     outcomes = {
@@ -86,9 +94,22 @@ def probe_departure(task, backend, service):
     return {"check": name, "before": previous, "after": latest, "scores": outcomes}
 
 
+def score_gate(check, events, status):
+    def read_status(tool, **kwargs):
+        assert tool == "get_flight_status" and kwargs == {"flight_no": "CA1856", "date": "2026-04-21"}
+        return status
+
+    def read_calendar(tool, **kwargs):
+        assert tool == "list_events"
+        return {"events": events}
+
+    env = SimpleNamespace(flight_booking_mock=SimpleNamespace(call_tool=read_status),
+                          calendar_mock=SimpleNamespace(call_tool=read_calendar))
+    return check(env)
+
+
 def probe_gate(task, backend, service):
-    date = "2026-04-21"
-    flight = "CA1856"
+    date, flight = "2026-04-21", "CA1856"
     flight_status = lambda: service.get_flight_status(flight, date)
     previous, latest = replay_updates(
         task, "evt_s18_mut_gate_change", "flight_booking", backend.apply_init_sql, flight_status
@@ -97,17 +118,7 @@ def probe_gate(task, backend, service):
     check = load_checks(task, 18)[name]
 
     def score(events, status):
-        def read_status(tool, **kwargs):
-            assert tool == "get_flight_status" and kwargs == {"flight_no": flight, "date": date}
-            return status
-
-        def read_calendar(tool, **kwargs):
-            assert tool == "list_events"
-            return {"events": events}
-
-        env = SimpleNamespace(flight_booking_mock=SimpleNamespace(call_tool=read_status),
-                              calendar_mock=SimpleNamespace(call_tool=read_calendar))
-        return check(env)
+        return score_gate(check, events, status)
 
     old_event = {"id": "gate-event", "summary": flight, "description": previous["gate"]}
     new_event = {**old_event, "description": latest["gate"]}
