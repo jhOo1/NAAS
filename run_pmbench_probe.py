@@ -18,6 +18,13 @@ WINDOWS = {
 }
 ARMS = ("original", "key", "unrelated")
 CONTROL = "price_tracker"
+CHOOSE_INSTRUCTION = "Finish this step with the native choose JSON using task handles. No further queries at this step."
+MENU_REVIEW = (
+    "Review the complete current action menu. For each pending action independently check the current cue, "
+    "object, deadline, and any updates or conflicts using the visible history and returned state. "
+    "Include all independently supported actions that are due now, including actions supported before the latest read. "
+    "An available handle or a historical cue alone does not show that its action is due now. Output only the native JSON."
+)
 
 
 def query_message(channel):
@@ -117,6 +124,8 @@ def main():
     parser.add_argument("--api-utils", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--review-menu", action="store_true",
+                        help="Add an explicit review instruction, with the same key response and one actor request")
     args = parser.parse_args()
     if args.output.exists() != args.resume:
         parser.error("Use a new output path, or --resume an existing experiment")
@@ -132,6 +141,8 @@ def main():
     score, _, _ = bench.score_log(scenario, actions)
     result = {"upstream": revision, "archive": args.archive.name, "archive_score": score,
               "model": MODEL, "seeds": list(SEEDS), "sampling": SAMPLING, "frames": build_frames(bench, scenario, actions)}
+    if args.review_menu:
+        result["actor_addendum"] = MENU_REVIEW
     if args.resume:
         existing = json.loads(args.output.read_text(encoding="utf-8"))
         for new, old in zip(result["frames"], existing["frames"]):
@@ -144,7 +155,7 @@ def main():
     for frame in result["frames"]:
         completed = {(item["seed"], item["arm"]) for item in frame["trials"]}
         for seed in SEEDS:
-            arms = list(ARMS)
+            arms = ["key"] if args.review_menu else list(ARMS)
             random.Random(seed).shuffle(arms)
             for arm in arms:
                 if (seed, arm) in completed:
@@ -153,7 +164,10 @@ def main():
                 read = frame["reads"][arm]
                 if read is not None:
                     messages.extend(query_turn(bench, read["channel"], read["items"]))
-                messages.append({"role": "user", "content": "Finish this step with the native choose JSON using task handles. No further queries at this step."})
+                instruction = CHOOSE_INSTRUCTION
+                if args.review_menu:
+                    instruction += " " + MENU_REVIEW
+                messages.append({"role": "user", "content": instruction})
                 response = sample(api, messages, seed)
                 evaluation = score_action(bench, scenario, actions, frame, read, response["raw_output"])
                 frame["trials"].append({"seed": seed, "arm": arm, "response": response, "evaluation": evaluation})

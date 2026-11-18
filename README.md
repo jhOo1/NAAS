@@ -2,7 +2,7 @@
 
 基于[指定网页对话的最后一轮方向 B](https://chatgpt.com/c/6afd60fd-dfc8-83ec-a099-939aeaa60eeb)。方法沿用该轮的名称 Task-Dependency-Aware Active Sensing（TDAAS）。
 
-**当前研究问题**　长期个人助理何时检查、检查哪个状态通道，才能在有限读取预算下及时完成有隐藏触发条件的待办？
+**当前研究问题**　长期个人助理如何核验隐藏的待办条件，并在有限读取预算下准时完成全部有依据的行动？
 
 - [监测主线、Benchmark、PM-Bench 归档审计与模型诊断](docs/monitoring-design.md)
 - [Qwen3.5-27B 单次自由选读基线与逐例对照](docs/free-read-20261118.md)
