@@ -5,6 +5,7 @@
 **研究问题**　在有限观察预算下，个人助理如何根据未完成任务的证据依赖，决定下一次何时查、查哪一个来源，以及查完后哪些任务需要更新？
 
 - [方向 B 的方法设计、论文定位与证伪实验](docs/research-design.md)
+- [网页评审后冻结的首轮协议与覆盖审计](docs/round-01.md)
 - [SentinelBench 首轮实验协议](docs/sentinelbench.md)
 - [VibeLifeBench 长期任务评估协议](docs/vibelifebench.md)
 - [早期局部采集诊断](docs/smoke-results.md)
@@ -20,3 +21,5 @@ python3 smoke.py
 ```
 
 方向 B 的合成诊断比较一次读取应优先服务单个决策还是多个决策，并检查错误依赖能否反转收益。它使用人为设定的变化时刻和效用，正式 benchmark 实验尚待接入。
+
+覆盖审计使用 PyYAML。数据版本、复现命令和原生场景核对记录见[首轮报告](docs/round-01.md#首次覆盖审计结果)。
