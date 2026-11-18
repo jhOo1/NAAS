@@ -1,21 +1,22 @@
 # Need-Aware Active Sensing（NAAS）
 
-面向主动个人助理的研究仓库。用户提供的截图确认了 [网页原案](https://chatgpt.com/c/6afd60fd-dfc8-83ec-a099-939aeaa60eeb) 的主线为 **Active Sensing × VibeLifeBench**，候选方案可以完全 training-free。原聊正文和后续讨论仍待读取。以下是围绕截图与公开资料独立提出的 v0。
+基于[指定网页对话的最后一轮方向 B](https://chatgpt.com/c/6afd60fd-dfc8-83ec-a099-939aeaa60eeb)。方法沿用该轮的名称 Task-Dependency-Aware Active Sensing（TDAAS）。
 
-**研究问题**　在长期任务中，世界会悄悄变化。固定的观察预算下，能否用当前承诺、已知时限和证据的过期风险决定何时重查、重查什么，从而在合适的时间修订计划？
+**研究问题**　在有限观察预算下，个人助理如何根据未完成任务的证据依赖，决定下一次何时查、查哪一个来源，以及查完后哪些任务需要更新？
 
-- [研究设计和近邻工作](docs/research-design.md)
-- [VibeLifeBench 接入审查与评估协议](docs/vibelifebench.md)
-- [合成诊断结果与运行限制](docs/smoke-results.md)
+- [方向 B 的方法设计、论文定位与证伪实验](docs/research-design.md)
+- [SentinelBench 首轮实验协议](docs/sentinelbench.md)
+- [VibeLifeBench 长期任务评估协议](docs/vibelifebench.md)
+- [早期局部采集诊断](docs/smoke-results.md)
 
 ## 本地复现
 
-需要 Python 3.9+，只使用标准库。在仓库根目录运行：
+需要 Python 3.9+，只使用标准库。
 
 ```sh
+python3 direction_b_demo.py
 python3 -m unittest discover -s tests -v
 python3 smoke.py
-python3 smoke.py --budget 0.2 0.45 0.8 1.2 --json
 ```
 
-程序精确枚举构造情境和可观察结果，比较相同证据预算上限下的停止、三种启发式采集、群体平均偏好的采集策略和两种前瞻深度。`cost` 是模拟采集支出，`net` 是建议效用减去采集支出。结果用于核对机制与计算，外部效度需在独立交互任务中验证。
+方向 B 的合成诊断比较一次读取应优先服务单个决策还是多个决策，并检查错误依赖能否反转收益。它使用人为设定的变化时刻和效用，正式 benchmark 实验尚待接入。
