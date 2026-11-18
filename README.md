@@ -2,8 +2,9 @@
 
 基于[指定网页对话的最后一轮方向 B](https://chatgpt.com/c/6afd60fd-dfc8-83ec-a099-939aeaa60eeb)。方法沿用该轮的名称 Task-Dependency-Aware Active Sensing（TDAAS）。
 
-**研究问题**　在有限观察预算下，个人助理如何根据未完成任务的证据依赖，决定下一次何时查、查哪一个来源，以及查完后哪些任务需要更新？
+**当前研究问题**　长期个人助理收到更新线索后，如何在有限预算下读到足以改变当前行动的证据？原多决策预算调度主张在 VibeLifeBench 的冻结覆盖审计中未达启动门槛。
 
+- [第三轮研究设计、三项原生评分复核与补证实验协议](docs/evidence-replay.md)
 - [方向 B 的方法设计、论文定位与证伪实验](docs/research-design.md)
 - [网页评审后冻结的首轮协议与覆盖审计](docs/round-01.md)
 - [VibeLifeBench 256 个原生候选逐条核验与门槛判定](docs/native-coverage.md)
