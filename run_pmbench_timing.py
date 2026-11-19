@@ -118,7 +118,7 @@ def evidence_at_step(bench, due, states, visibility, step, read, chosen):
     return result
 
 
-def play_week(bench, scenario, run, schedule, api, checkpoint, *, observe=None):
+def play_week(bench, scenario, run, schedule, api, checkpoint, *, observe=None, before_read=None, locked_channels=None):
     """Each yielded step completes both policy decisions and the native action."""
     channels = bench.normalize_state_channels(scenario)
     visibility = bench.normalize_state_visibility(scenario)
@@ -160,14 +160,28 @@ def play_week(bench, scenario, run, schedule, api, checkpoint, *, observe=None):
             row = run["steps"][index - 1]
             if (row["day"], row["step_id"], row["index"], row["block"]) != (name, step_id, index, cursor + 1):
                 raise ValueError(f"Resume step drift at {step_id}")
+
+            def read_at_step(channel):
+                return bench.resolve_state_query_items(channel, day["steps"], day_index, name, start_minutes,
+                                                       channels, last_query.copy(), snapshot.copy())
+
+            if before_read is not None:
+                before_read(step, history, lookup, row, read_at_step)
             seed = SEED + index - 1
-            plan_prompt = [*history, {"role": "user", "content": PLAN_INSTRUCTION}]
+            locked = locked_channels[cursor] if locked_channels is not None else None
+            instruction = PLAN_INSTRUCTION
+            if locked is not None:
+                instruction += (
+                    f" In this block the only available read channel is {locked}. "
+                    "Set channel to that exact value. Evaluate read_now for that channel only."
+                )
+            plan_prompt = [*history, {"role": "user", "content": instruction}]
             raw = get_reply(row, "plan_reply", plan_prompt, seed, api, checkpoint)
-            plan, plan_error = plan_from_reply(bench, raw, channels)
+            plan, plan_error = plan_from_reply(bench, raw, {locked} if locked is not None else channels)
             reason = read_reason(run["arm"], index, block, spent, plan["read_now"])
             read = None
             if reason:
-                channel = plan["channel"]
+                channel = locked if locked is not None else plan["channel"]
                 items = bench.resolve_state_query_items(channel, day["steps"], day_index, name, start_minutes,
                                                         channels, last_query, snapshot)
                 read = bench.build_state_query_response(channel, items, name, step_id)
@@ -198,10 +212,6 @@ def play_week(bench, scenario, run, schedule, api, checkpoint, *, observe=None):
                         "due": evidence_at_step(bench, due, states, visibility, step, read, chosen),
                         "missed_due": sorted(due - chosen), "non_due_actions": sorted(chosen - due)})
             if observe is not None:
-                def read_at_step(channel):
-                    return bench.resolve_state_query_items(channel, day["steps"], day_index, name, start_minutes,
-                                                            channels, last_query.copy(), snapshot.copy())
-
                 observe(step, history, lookup, row, read_at_step)
             history.append({"role": "assistant", "content": compact(choice)})
             bench.apply_runtime_completions(states, ids, due, step, day_index, minutes, start_minutes)
