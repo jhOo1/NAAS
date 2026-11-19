@@ -118,7 +118,7 @@ def evidence_at_step(bench, due, states, visibility, step, read, chosen):
     return result
 
 
-def play_week(bench, scenario, run, schedule, api, checkpoint):
+def play_week(bench, scenario, run, schedule, api, checkpoint, *, observe=None):
     """Each yielded step completes both policy decisions and the native action."""
     channels = bench.normalize_state_channels(scenario)
     visibility = bench.normalize_state_visibility(scenario)
@@ -197,6 +197,12 @@ def play_week(bench, scenario, run, schedule, api, checkpoint):
                         "native_action": native_action(row, choice, ids, read),
                         "due": evidence_at_step(bench, due, states, visibility, step, read, chosen),
                         "missed_due": sorted(due - chosen), "non_due_actions": sorted(chosen - due)})
+            if observe is not None:
+                def read_at_step(channel):
+                    return bench.resolve_state_query_items(channel, day["steps"], day_index, name, start_minutes,
+                                                            channels, last_query.copy(), snapshot.copy())
+
+                observe(step, history, lookup, row, read_at_step)
             history.append({"role": "assistant", "content": compact(choice)})
             bench.apply_runtime_completions(states, ids, due, step, day_index, minutes, start_minutes)
             if index == block["last"]:
