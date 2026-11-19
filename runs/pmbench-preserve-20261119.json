@@ -1,0 +1,701 @@
+{
+  "protocol": {
+    "revision": "e1093c470c8981daf522d4ef047a7c3a71e077d7",
+    "week_seeds": [
+      47,
+      83
+    ],
+    "weeks": {
+      "47": "0cce717ef345741da344c5b1ce22ee23a79c1aef5b464bb0c3fda0bf8c1cdb5f",
+      "83": "97b92d3c59bd94b02a59d70077685e4afb5968ebd9c1cde3b04ac5d19b697de8"
+    },
+    "model": "qwen3.5-27b",
+    "model_seed": 41,
+    "sampling": {
+      "temperature": 0.4,
+      "top_p": 0.9,
+      "max_tokens": 256,
+      "enable_thinking": false,
+      "stream": false
+    },
+    "pre_read": " For each selected prospective action, add a support field mapping its handle to a short exact quotation from the current event narrative that establishes its current trigger. If the narrative cannot support that handle, omit it from support. Do not quote from the menu or choice options.",
+    "preserve": " Listed candidates were selected before the tool read and have exact quotations in the current event. Keep each candidate unless the actual tool reply explicitly invalidates its trigger, object or latest instruction. An unrelated new trigger is compatible with retaining an independently supported action. In the native choose JSON, include an optional invalidate object from candidate handle to a short exact quotation in the latest tool reply that invalidates it. Do not use hidden information or infer revocation from missing data. Continue to act on independently supported new triggers. This is the last model call.",
+    "baseline": "Finish this step with the native choose JSON using task handles. No further queries at this step.",
+    "gate": {
+      "min_restored": 2,
+      "min_restored_windows": 2,
+      "max_target_losses": 0,
+      "max_other_losses": 0,
+      "max_pairs_with_more_false_alarms": 0,
+      "max_non_due_increase": 0
+    }
+  },
+  "windows": {
+    "47:d1_s7": {
+      "step_id": "d1_s7",
+      "day": "Monday",
+      "stratum": "target_only",
+      "due": [
+        "calendar_room_shift_d1"
+      ],
+      "targets": [
+        "calendar_room_shift_d1"
+      ],
+      "narrative_due": [],
+      "archive_action": {
+        "day": "Monday",
+        "step_id": "d1_s7",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "calendar",
+          "items": [
+            {
+              "id": "calendar_room_shift_d1",
+              "text": "Calendar update: room changed for this afternoon.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Monday",
+            "step_id": "d1_s7"
+          }
+        },
+        "delivered_text": "State [calendar]: Calendar update: room changed for this afternoon."
+      },
+      "trigger_event": "You put the pickup code where you can see it and sort out the next two errands."
+    },
+    "47:d2_s5": {
+      "step_id": "d2_s5",
+      "day": "Tuesday",
+      "stratum": "target_only",
+      "due": [
+        "appointment_form_ready_d2"
+      ],
+      "targets": [
+        "appointment_form_ready_d2"
+      ],
+      "narrative_due": [],
+      "archive_action": {
+        "day": "Tuesday",
+        "step_id": "d2_s5",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "appointment_portal",
+          "items": [
+            {
+              "id": "appointment_form_ready_d2",
+              "text": "Appointment portal: intake form posted.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Tuesday",
+            "step_id": "d2_s5"
+          }
+        },
+        "delivered_text": "State [appointment_portal]: Appointment portal: intake form posted."
+      },
+      "trigger_event": "You make a mental note to record the meter reading before the day gets away from you."
+    },
+    "47:d2_s8": {
+      "step_id": "d2_s8",
+      "day": "Tuesday",
+      "stratum": "concurrent",
+      "due": [
+        "antibiotic_dinner",
+        "crossday_2",
+        "laundry_room_cart_d2",
+        "price_drop_54_d2",
+        "price_drop_72_d2",
+        "record_meter_reading_1_d2",
+        "storage_cage_d2"
+      ],
+      "targets": [
+        "price_drop_54_d2",
+        "price_drop_72_d2"
+      ],
+      "narrative_due": [
+        "antibiotic_dinner",
+        "crossday_2",
+        "laundry_room_cart_d2",
+        "storage_cage_d2"
+      ],
+      "archive_action": {
+        "day": "Tuesday",
+        "step_id": "d2_s8",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_drop_54_d2",
+              "text": "Price check: filter is $54.",
+              "value": 54,
+              "meta": {
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "price_drop_72_d2",
+              "text": "Price check: storage bin is $72.",
+              "value": 72,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "meta": {
+            "day": "Tuesday",
+            "step_id": "d2_s8"
+          }
+        },
+        "delivered_text": "State [price_tracker]: Price check: filter is $54. | Price check: storage bin is $72."
+      },
+      "trigger_event": "Dinner feels more like a pause button than a real stop. The storage cage has been left open for deliveries again. A laundry room cart is sitting empty near the door."
+    },
+    "47:d3_s8": {
+      "step_id": "d3_s8",
+      "day": "Wednesday",
+      "stratum": "concurrent",
+      "due": [
+        "balance_low_140_d3",
+        "crossday_4",
+        "lab_dropbox_d3"
+      ],
+      "targets": [
+        "balance_low_140_d3"
+      ],
+      "narrative_due": [
+        "crossday_4",
+        "lab_dropbox_d3"
+      ],
+      "archive_action": {
+        "day": "Wednesday",
+        "step_id": "d3_s8",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "bank_balance",
+          "items": [
+            {
+              "id": "balance_low_140_d3",
+              "text": "Balance check: $138.",
+              "value": 138,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "meta": {
+            "day": "Wednesday",
+            "step_id": "d3_s8"
+          }
+        },
+        "delivered_text": "State [bank_balance]: Balance check: $138."
+      },
+      "trigger_event": "You notice the lab drop box is unlocked for afternoon drop-offs."
+    },
+    "47:d4_s5": {
+      "step_id": "d4_s5",
+      "day": "Thursday",
+      "stratum": "concurrent",
+      "due": [
+        "clinic_window_d4",
+        "email_form_followup_d4",
+        "email_vendor_1_d4"
+      ],
+      "targets": [
+        "email_form_followup_d4"
+      ],
+      "narrative_due": [
+        "clinic_window_d4"
+      ],
+      "archive_action": {
+        "day": "Thursday",
+        "step_id": "d4_s5",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "email",
+          "items": [
+            {
+              "id": "email_form_followup_d4",
+              "text": "New email: follow-up form is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Thursday",
+            "step_id": "d4_s5"
+          }
+        },
+        "delivered_text": "State [email]: New email: follow-up form is ready."
+      },
+      "trigger_event": "For a moment, the clinic check-in window is open when you pass it. You have a feeling the appointment portal may open a better slot later."
+    },
+    "47:d5_s4": {
+      "step_id": "d5_s4",
+      "day": "Friday",
+      "stratum": "concurrent",
+      "due": [
+        "asthma_1100",
+        "calendar_call_move_d5",
+        "courier_desk_d5"
+      ],
+      "targets": [
+        "calendar_call_move_d5"
+      ],
+      "narrative_due": [
+        "courier_desk_d5"
+      ],
+      "archive_action": {
+        "day": "Friday",
+        "step_id": "d5_s4",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "calendar",
+          "items": [
+            {
+              "id": "calendar_call_move_d5",
+              "text": "Calendar update: check-in moved later today.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Friday",
+            "step_id": "d5_s4"
+          }
+        },
+        "delivered_text": "State [calendar]: Calendar update: check-in moved later today."
+      },
+      "trigger_event": "A courier is waiting at the reception desk with a slim envelope."
+    },
+    "47:d5_s5": {
+      "step_id": "d5_s5",
+      "day": "Friday",
+      "stratum": "concurrent",
+      "due": [
+        "appointment_reschedule_open_d5",
+        "doorbell_camera_flash_d5"
+      ],
+      "targets": [
+        "appointment_reschedule_open_d5"
+      ],
+      "narrative_due": [
+        "doorbell_camera_flash_d5"
+      ],
+      "archive_action": {
+        "day": "Friday",
+        "step_id": "d5_s5",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "appointment_portal",
+          "items": [
+            {
+              "id": "appointment_reschedule_open_d5",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Friday",
+            "step_id": "d5_s5"
+          }
+        },
+        "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
+      },
+      "trigger_event": "The doorbell camera flashes while you're still nearby."
+    },
+    "47:d6_s7": {
+      "step_id": "d6_s7",
+      "day": "Saturday",
+      "stratum": "concurrent",
+      "due": [
+        "concierge_counter_d6",
+        "price_drop_54_d6",
+        "price_drop_72_d6",
+        "roof_access_sign_d6"
+      ],
+      "targets": [
+        "price_drop_54_d6",
+        "price_drop_72_d6"
+      ],
+      "narrative_due": [
+        "concierge_counter_d6",
+        "roof_access_sign_d6"
+      ],
+      "archive_action": {
+        "day": "Saturday",
+        "step_id": "d6_s7",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_drop_72_d6",
+              "text": "Price check: storage bin is $72.",
+              "value": 72,
+              "meta": {
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "price_drop_54_d6",
+              "text": "Price check: filter is $54.",
+              "value": 54,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "meta": {
+            "day": "Saturday",
+            "step_id": "d6_s7"
+          }
+        },
+        "delivered_text": "State [price_tracker]: Price check: storage bin is $72. | Price check: filter is $54."
+      },
+      "trigger_event": "The package locker light is finally green instead of red. The roof access sign is temporarily uncovered while maintenance is there. The concierge counter has your oversized parcel tag clipped to the side."
+    },
+    "47:d7_s4": {
+      "step_id": "d7_s4",
+      "day": "Sunday",
+      "stratum": "concurrent",
+      "due": [
+        "appointment_reschedule_open_d7",
+        "asthma_1100",
+        "community_board_d7"
+      ],
+      "targets": [
+        "appointment_reschedule_open_d7"
+      ],
+      "narrative_due": [
+        "community_board_d7"
+      ],
+      "archive_action": {
+        "day": "Sunday",
+        "step_id": "d7_s4",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "appointment_portal",
+          "items": [
+            {
+              "id": "appointment_reschedule_open_d7",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Sunday",
+            "step_id": "d7_s4"
+          }
+        },
+        "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
+      },
+      "trigger_event": "The community bulletin board has a fresh note pinned up."
+    },
+    "47:d7_s8": {
+      "step_id": "d7_s8",
+      "day": "Sunday",
+      "stratum": "concurrent",
+      "due": [
+        "calendar_guest_note_d7",
+        "courtyard_bench_d7",
+        "crossday_6",
+        "text_roommate_1_d7"
+      ],
+      "targets": [
+        "calendar_guest_note_d7"
+      ],
+      "narrative_due": [
+        "courtyard_bench_d7",
+        "crossday_6"
+      ],
+      "archive_action": {
+        "day": "Sunday",
+        "step_id": "d7_s8",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "calendar",
+          "items": [
+            {
+              "id": "calendar_guest_note_d7",
+              "text": "Calendar update: guest count changed for tonight.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Sunday",
+            "step_id": "d7_s8"
+          }
+        },
+        "delivered_text": "State [calendar]: Calendar update: guest count changed for tonight."
+      },
+      "trigger_event": "The courtyard bench is finally empty for a minute."
+    },
+    "83:d1_s4": {
+      "step_id": "d1_s4",
+      "day": "Monday",
+      "stratum": "concurrent",
+      "due": [
+        "asthma_1100",
+        "course_grade_released_d1",
+        "lecture_side_door_d1"
+      ],
+      "targets": [
+        "course_grade_released_d1"
+      ],
+      "narrative_due": [
+        "lecture_side_door_d1"
+      ],
+      "archive_action": {
+        "day": "Monday",
+        "step_id": "d1_s4",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "course_portal",
+          "items": [
+            {
+              "id": "course_grade_released_d1",
+              "text": "Course portal: grade released.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Monday",
+            "step_id": "d1_s4"
+          }
+        },
+        "delivered_text": "State [course_portal]: Course portal: grade released."
+      },
+      "trigger_event": "The lecture hall side door is propped open while the room resets. You leave yourself a note: On Tuesday, Carry the repair note when you notice the repair van."
+    },
+    "83:d2_s8": {
+      "step_id": "d2_s8",
+      "day": "Tuesday",
+      "stratum": "target_only",
+      "due": [
+        "appointment_reschedule_open_d2"
+      ],
+      "targets": [
+        "appointment_reschedule_open_d2"
+      ],
+      "narrative_due": [],
+      "archive_action": {
+        "day": "Tuesday",
+        "step_id": "d2_s8",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "appointment_portal",
+          "items": [
+            {
+              "id": "appointment_reschedule_open_d2",
+              "text": "Appointment portal: earlier slot available.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Tuesday",
+            "step_id": "d2_s8"
+          }
+        },
+        "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
+      },
+      "trigger_event": "You know you still have to send the repair photo today."
+    },
+    "83:d2_s9": {
+      "step_id": "d2_s9",
+      "day": "Tuesday",
+      "stratum": "target_only",
+      "due": [
+        "price_drop_72_d2"
+      ],
+      "targets": [
+        "price_drop_72_d2"
+      ],
+      "narrative_due": [],
+      "archive_action": {
+        "day": "Tuesday",
+        "step_id": "d2_s9",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_drop_72_d2",
+              "text": "Price check: storage bin is $72.",
+              "value": 72,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "meta": {
+            "day": "Tuesday",
+            "step_id": "d2_s9"
+          }
+        },
+        "delivered_text": "State [price_tracker]: Price check: storage bin is $72."
+      },
+      "trigger_event": "You slow down for a minute, check the folded towel, and sort out the rest of the night."
+    },
+    "83:d5_s8": {
+      "step_id": "d5_s8",
+      "day": "Friday",
+      "stratum": "concurrent",
+      "due": [
+        "library_hold_ready_d5",
+        "roof_access_sign_d5"
+      ],
+      "targets": [
+        "library_hold_ready_d5"
+      ],
+      "narrative_due": [
+        "roof_access_sign_d5"
+      ],
+      "archive_action": {
+        "day": "Friday",
+        "step_id": "d5_s8",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "library_hold",
+          "items": [
+            {
+              "id": "library_hold_ready_d5",
+              "text": "Library notice: your hold is ready.",
+              "value": null,
+              "meta": {}
+            }
+          ],
+          "meta": {
+            "day": "Friday",
+            "step_id": "d5_s8"
+          }
+        },
+        "delivered_text": "State [library_hold]: Library notice: your hold is ready."
+      },
+      "trigger_event": "The roof access sign is temporarily uncovered while maintenance is there."
+    },
+    "83:d7_s9": {
+      "step_id": "d7_s9",
+      "day": "Sunday",
+      "stratum": "concurrent",
+      "due": [
+        "concierge_counter_d7",
+        "confirm_pickup_window_2_d7",
+        "crossday_6",
+        "package_locker_light_d7",
+        "price_drop_54_d7",
+        "price_drop_72_d7"
+      ],
+      "targets": [
+        "price_drop_54_d7",
+        "price_drop_72_d7"
+      ],
+      "narrative_due": [
+        "concierge_counter_d7",
+        "crossday_6",
+        "package_locker_light_d7"
+      ],
+      "archive_action": {
+        "day": "Sunday",
+        "step_id": "d7_s9",
+        "choice": "A",
+        "task_ids": [],
+        "state_queries": {}
+      },
+      "read": {
+        "response": {
+          "channel": "price_tracker",
+          "items": [
+            {
+              "id": "price_drop_72_d7",
+              "text": "Price check: storage bin is $72.",
+              "value": 72,
+              "meta": {
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "price_drop_54_d7",
+              "text": "Price check: filter is $54.",
+              "value": 54,
+              "meta": {
+                "currency": "USD"
+              }
+            }
+          ],
+          "meta": {
+            "day": "Sunday",
+            "step_id": "d7_s9"
+          }
+        },
+        "delivered_text": "State [price_tracker]: Price check: storage bin is $72. | Price check: filter is $54."
+      },
+      "trigger_event": "The concierge counter has your oversized parcel tag clipped to the side. The package locker light is finally green instead of red."
+    }
+  }
+}
