@@ -67,7 +67,246 @@
         },
         "delivered_text": "State [calendar]: Calendar update: room changed for this afternoon."
       },
-      "trigger_event": "You put the pickup code where you can see it and sort out the next two errands."
+      "trigger_event": "You put the pickup code where you can see it and sort out the next two errands.",
+      "trial": {
+        "step_id": "d1_s7",
+        "pre_reply": {
+          "prompt_sha256": "8651fc1bfa98a7bbf0e52f69864f80ce8ace587319e3361891cc04501a73c4a1",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-b22157b0-601e-9dd7-9a16-73311c41154c",
+          "usage": {
+            "completion_tokens": 18,
+            "completion_tokens_details": {
+              "text_tokens": 18
+            },
+            "created": 1795089217,
+            "prompt_tokens": 2508,
+            "prompt_tokens_details": {
+              "text_tokens": 2508
+            },
+            "total_tokens": 2526
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 6701.7
+        },
+        "arms": {
+          "original": {
+            "step_id": "d1_s7",
+            "reply": {
+              "prompt_sha256": "2a5e6bc32a00dd6634d645cc6ddf5a7fdd269d3ad7e43b41cb9f83be94da90c1",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_10\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-1c9d2d85-ff26-9baf-a62b-493db0b811cd",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089222,
+                "prompt_tokens": 2497,
+                "prompt_tokens_details": {
+                  "text_tokens": 2497
+                },
+                "total_tokens": 2519
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4507.5
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_10"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s7",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_room_shift_d1"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_room_shift_d1"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_10"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s7",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_room_shift_d1"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_room_shift_d1"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d1_s7",
+            "reply": {
+              "prompt_sha256": "eb8f523b6f520ff415796038dedbeca10b8c507dd3432f9cea2b0a3d1f1d466f",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-ef816424-40a1-916a-97ff-f042317dd31a",
+              "usage": {
+                "completion_tokens": 18,
+                "completion_tokens_details": {
+                  "text_tokens": 18
+                },
+                "created": 1795089228,
+                "prompt_tokens": 2608,
+                "prompt_tokens_details": {
+                  "text_tokens": 2608
+                },
+                "total_tokens": 2626
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 6256.5
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s7",
+                "choice": "A",
+                "task_ids": [],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 0,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [],
+              "missed_due": [
+                "calendar_room_shift_d1"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s7",
+                "choice": "A",
+                "task_ids": [],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 0,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [],
+              "missed_due": [
+                "calendar_room_shift_d1"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Monday",
+            "step_id": "d1_s7",
+            "choice": "A",
+            "task_ids": [],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 0,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [],
+          "missed_due": [
+            "calendar_room_shift_d1"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "47:d2_s5": {
       "step_id": "d2_s5",
@@ -105,7 +344,254 @@
         },
         "delivered_text": "State [appointment_portal]: Appointment portal: intake form posted."
       },
-      "trigger_event": "You make a mental note to record the meter reading before the day gets away from you."
+      "trigger_event": "You make a mental note to record the meter reading before the day gets away from you.",
+      "trial": {
+        "step_id": "d2_s5",
+        "pre_reply": {
+          "prompt_sha256": "ab3aaca2eda6230b4fccf2d2eac376b73461621a7643b69a3831db9a2be79c24",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-3935cb77-bd98-99f2-bb31-120b91f6016a",
+          "usage": {
+            "completion_tokens": 18,
+            "completion_tokens_details": {
+              "text_tokens": 18
+            },
+            "created": 1795089235,
+            "prompt_tokens": 5273,
+            "prompt_tokens_details": {
+              "text_tokens": 5273
+            },
+            "total_tokens": 5291
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 7276.8
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d2_s5",
+            "reply": {
+              "prompt_sha256": "e1e7f834dd15224c0c61e73d856afaa03b22a1359b44eba26883416be03907ae",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_26\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-ea8c90fb-db99-91a0-9848-b1c402c22577",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089240,
+                "prompt_tokens": 5373,
+                "prompt_tokens_details": {
+                  "text_tokens": 5373
+                },
+                "total_tokens": 5395
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4189.2
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_26"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_form_ready_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_form_ready_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_26"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_form_ready_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_form_ready_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d2_s5",
+            "reply": {
+              "prompt_sha256": "5e6bf1bf92754c85841002ca6c931ab3332d1fb2c92dc4913d8ab2ddbfc66e5d",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_26\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-704716fe-4022-9132-8630-41fe52e45735",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089247,
+                "prompt_tokens": 5262,
+                "prompt_tokens_details": {
+                  "text_tokens": 5262
+                },
+                "total_tokens": 5284
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 6960.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_26"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_form_ready_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_form_ready_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_26"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_form_ready_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_form_ready_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Tuesday",
+            "step_id": "d2_s5",
+            "choice": "A",
+            "task_ids": [],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 0,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [],
+          "missed_due": [
+            "appointment_form_ready_d2"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "47:d2_s8": {
       "step_id": "d2_s8",
@@ -165,7 +651,335 @@
         },
         "delivered_text": "State [price_tracker]: Price check: filter is $54. | Price check: storage bin is $72."
       },
-      "trigger_event": "Dinner feels more like a pause button than a real stop. The storage cage has been left open for deliveries again. A laundry room cart is sitting empty near the door."
+      "trigger_event": "Dinner feels more like a pause button than a real stop. The storage cage has been left open for deliveries again. A laundry room cart is sitting empty near the door.",
+      "trial": {
+        "step_id": "d2_s8",
+        "pre_reply": {
+          "prompt_sha256": "b429ac0a4607f960fd9459b68426b17b34b803a335576a8dc7fa7460bd1ec025",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_6\",\"task_3\",\"task_25\"],\"support\":{\"task_6\":\"The storage cage has been left open for deliveries again.\",\"task_3\":\"A laundry room cart is sitting empty near the door.\",\"task_25\":\"Dinner feels more like a pause button than a real stop.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-04b95b5e-fb35-9391-888a-a3303cbbb0c0",
+          "usage": {
+            "completion_tokens": 77,
+            "completion_tokens_details": {
+              "text_tokens": 77
+            },
+            "created": 1795089251,
+            "prompt_tokens": 6084,
+            "prompt_tokens_details": {
+              "text_tokens": 6084
+            },
+            "total_tokens": 6161
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 4624.7
+        },
+        "arms": {
+          "original": {
+            "step_id": "d2_s8",
+            "reply": {
+              "prompt_sha256": "faa947e604b613b9e1c4c993212b07ecef173cb465697bf88330a43e47c27d19",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_6\",\"task_3\",\"task_20\",\"task_2\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-14124f27-f243-9076-9a89-42b87222dc12",
+              "usage": {
+                "completion_tokens": 34,
+                "completion_tokens_details": {
+                  "text_tokens": 34
+                },
+                "created": 1795089255,
+                "prompt_tokens": 6086,
+                "prompt_tokens_details": {
+                  "text_tokens": 6086
+                },
+                "total_tokens": 6120
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4205.5
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_6",
+                  "task_3",
+                  "task_20",
+                  "task_2"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "crossday_2",
+                  "crossday_1",
+                  "price_drop_54_d2",
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 3,
+                "late": 1,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "crossday_2",
+                "price_drop_54_d2",
+                "price_drop_72_d2"
+              ],
+              "missed_due": [
+                "antibiotic_dinner",
+                "laundry_room_cart_d2",
+                "record_meter_reading_1_d2",
+                "storage_cage_d2"
+              ],
+              "non_due_actions": [
+                "crossday_1"
+              ]
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_6",
+                  "task_3",
+                  "task_20",
+                  "task_2"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "crossday_2",
+                  "crossday_1",
+                  "price_drop_54_d2",
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 3,
+                "late": 1,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "crossday_2",
+                "price_drop_54_d2",
+                "price_drop_72_d2"
+              ],
+              "missed_due": [
+                "antibiotic_dinner",
+                "laundry_room_cart_d2",
+                "record_meter_reading_1_d2",
+                "storage_cage_d2"
+              ],
+              "non_due_actions": [
+                "crossday_1"
+              ]
+            }
+          },
+          "preserve": {
+            "step_id": "d2_s8",
+            "reply": {
+              "prompt_sha256": "190f3e0e58f17eccafedde9c3aba9ce5590fda26bf2554b04df7ffa769141548",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_6\",\"task_3\",\"task_25\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-dd1a707a-d326-99a5-a724-25530a509c8b",
+              "usage": {
+                "completion_tokens": 30,
+                "completion_tokens_details": {
+                  "text_tokens": 30
+                },
+                "created": 1795089261,
+                "prompt_tokens": 6246,
+                "prompt_tokens_details": {
+                  "text_tokens": 6246
+                },
+                "total_tokens": 6276
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 5351.2
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_6",
+                  "task_3",
+                  "task_25"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "crossday_2",
+                  "crossday_1",
+                  "antibiotic_dinner"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 1,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "antibiotic_dinner",
+                "crossday_2"
+              ],
+              "missed_due": [
+                "laundry_room_cart_d2",
+                "price_drop_54_d2",
+                "price_drop_72_d2",
+                "record_meter_reading_1_d2",
+                "storage_cage_d2"
+              ],
+              "non_due_actions": [
+                "crossday_1"
+              ]
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_6",
+                  "task_3",
+                  "task_25"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "crossday_2",
+                  "crossday_1",
+                  "antibiotic_dinner"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 1,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "antibiotic_dinner",
+                "crossday_2"
+              ],
+              "missed_due": [
+                "laundry_room_cart_d2",
+                "price_drop_54_d2",
+                "price_drop_72_d2",
+                "record_meter_reading_1_d2",
+                "storage_cage_d2"
+              ],
+              "non_due_actions": [
+                "crossday_1"
+              ]
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_6",
+              "task_3",
+              "task_25"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Tuesday",
+            "step_id": "d2_s8",
+            "choice": "A",
+            "task_ids": [
+              "crossday_2",
+              "crossday_1",
+              "antibiotic_dinner"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 2,
+            "late": 1,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 1,
+            "set_fp": 1
+          },
+          "completed_due": [
+            "antibiotic_dinner",
+            "crossday_2"
+          ],
+          "missed_due": [
+            "laundry_room_cart_d2",
+            "price_drop_54_d2",
+            "price_drop_72_d2",
+            "record_meter_reading_1_d2",
+            "storage_cage_d2"
+          ],
+          "non_due_actions": [
+            "crossday_1"
+          ]
+        },
+        "support": {
+          "task_6": "The storage cage has been left open for deliveries again.",
+          "task_3": "A laundry room cart is sitting empty near the door.",
+          "task_25": "Dinner feels more like a pause button than a real stop."
+        },
+        "protected_task_ids": [
+          "crossday_2",
+          "crossday_1",
+          "antibiotic_dinner"
+        ]
+      }
     },
     "47:d3_s8": {
       "step_id": "d3_s8",
@@ -210,7 +1024,285 @@
         },
         "delivered_text": "State [bank_balance]: Balance check: $138."
       },
-      "trigger_event": "You notice the lab drop box is unlocked for afternoon drop-offs."
+      "trigger_event": "You notice the lab drop box is unlocked for afternoon drop-offs.",
+      "trial": {
+        "step_id": "d3_s8",
+        "pre_reply": {
+          "prompt_sha256": "5e207fe253fb38b31fbcaefc6e9826f9d9cc0d2c8bb94c03a97e4dfb6b54ec06",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_4\"],\"channel\":\"NONE\",\"support\":{\"task_4\":\"You notice the lab drop box is unlocked for afternoon drop-offs.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-598579f2-f103-9dcf-ae32-f7e0c98f634a",
+          "usage": {
+            "completion_tokens": 41,
+            "completion_tokens_details": {
+              "text_tokens": 41
+            },
+            "created": 1795089268,
+            "prompt_tokens": 8638,
+            "prompt_tokens_details": {
+              "text_tokens": 8638
+            },
+            "total_tokens": 8679
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 6950.6
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d3_s8",
+            "reply": {
+              "prompt_sha256": "06b38fc770ba1b20ede584d40697819c5d2dca2ccb115fbe7dd1886323e8380d",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_4\",\"task_16\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-91ef5eb4-bc7f-9672-a520-fef613d41f02",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089273,
+                "prompt_tokens": 8757,
+                "prompt_tokens_details": {
+                  "text_tokens": 8757
+                },
+                "total_tokens": 8783
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 5060.8
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Wednesday",
+                "step_id": "d3_s8",
+                "choice": "A",
+                "task_ids": [
+                  "lab_dropbox_d3",
+                  "balance_low_140_d3"
+                ],
+                "state_queries": {
+                  "bank_balance": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "balance_low_140_d3",
+                "lab_dropbox_d3"
+              ],
+              "missed_due": [
+                "crossday_4"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Wednesday",
+                "step_id": "d3_s8",
+                "choice": "A",
+                "task_ids": [
+                  "lab_dropbox_d3",
+                  "balance_low_140_d3"
+                ],
+                "state_queries": {
+                  "bank_balance": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "balance_low_140_d3",
+                "lab_dropbox_d3"
+              ],
+              "missed_due": [
+                "crossday_4"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d3_s8",
+            "reply": {
+              "prompt_sha256": "96966201114196234e38a5682e9ac840e9255f989a4d89d9ba05b98eb21bda7e",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_4\",\"task_16\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-df06e5d7-fe68-9be4-a425-75d69444b5a3",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089288,
+                "prompt_tokens": 8628,
+                "prompt_tokens_details": {
+                  "text_tokens": 8628
+                },
+                "total_tokens": 8654
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 15442.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Wednesday",
+                "step_id": "d3_s8",
+                "choice": "A",
+                "task_ids": [
+                  "lab_dropbox_d3",
+                  "balance_low_140_d3"
+                ],
+                "state_queries": {
+                  "bank_balance": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "balance_low_140_d3",
+                "lab_dropbox_d3"
+              ],
+              "missed_due": [
+                "crossday_4"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Wednesday",
+                "step_id": "d3_s8",
+                "choice": "A",
+                "task_ids": [
+                  "lab_dropbox_d3",
+                  "balance_low_140_d3"
+                ],
+                "state_queries": {
+                  "bank_balance": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "balance_low_140_d3",
+                "lab_dropbox_d3"
+              ],
+              "missed_due": [
+                "crossday_4"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_4"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Wednesday",
+            "step_id": "d3_s8",
+            "choice": "A",
+            "task_ids": [
+              "lab_dropbox_d3"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "lab_dropbox_d3"
+          ],
+          "missed_due": [
+            "balance_low_140_d3",
+            "crossday_4"
+          ],
+          "non_due_actions": []
+        },
+        "support": {
+          "task_4": "You notice the lab drop box is unlocked for afternoon drop-offs."
+        },
+        "protected_task_ids": [
+          "lab_dropbox_d3"
+        ]
+      }
     },
     "47:d4_s5": {
       "step_id": "d4_s5",
@@ -252,7 +1344,268 @@
         },
         "delivered_text": "State [email]: New email: follow-up form is ready."
       },
-      "trigger_event": "For a moment, the clinic check-in window is open when you pass it. You have a feeling the appointment portal may open a better slot later."
+      "trigger_event": "For a moment, the clinic check-in window is open when you pass it. You have a feeling the appointment portal may open a better slot later.",
+      "trial": {
+        "step_id": "d4_s5",
+        "pre_reply": {
+          "prompt_sha256": "4080e42931174d74831d44ad32ca64712164fd3a51defd6265b78c27dd84d63d",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-539091d1-54ea-9bc7-b85e-87c5b78d6c37",
+          "usage": {
+            "completion_tokens": 18,
+            "completion_tokens_details": {
+              "text_tokens": 18
+            },
+            "created": 1795089294,
+            "prompt_tokens": 10926,
+            "prompt_tokens_details": {
+              "text_tokens": 10926
+            },
+            "total_tokens": 10944
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 5440.8
+        },
+        "arms": {
+          "original": {
+            "step_id": "d4_s5",
+            "reply": {
+              "prompt_sha256": "f189a2aa7cc10805ad129c13a68de70bbc2efad3636668c575078f10accb7d6e",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-b614307e-d403-9c50-b6af-8583e033b550",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089300,
+                "prompt_tokens": 10915,
+                "prompt_tokens_details": {
+                  "text_tokens": 10915
+                },
+                "total_tokens": 10937
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 6459.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Thursday",
+                "step_id": "d4_s5",
+                "choice": "A",
+                "task_ids": [
+                  "email_form_followup_d4"
+                ],
+                "state_queries": {
+                  "email": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "email_form_followup_d4"
+              ],
+              "missed_due": [
+                "clinic_window_d4",
+                "email_vendor_1_d4"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Thursday",
+                "step_id": "d4_s5",
+                "choice": "A",
+                "task_ids": [
+                  "email_form_followup_d4"
+                ],
+                "state_queries": {
+                  "email": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "email_form_followup_d4"
+              ],
+              "missed_due": [
+                "clinic_window_d4",
+                "email_vendor_1_d4"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d4_s5",
+            "reply": {
+              "prompt_sha256": "eb7ed7ef43187dd86275f488a8cc207062b45b35a4c722dcb7ca305ff855d63f",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-29534885-2a1d-9bfd-a5f3-bcdcf4b907ca",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089313,
+                "prompt_tokens": 11026,
+                "prompt_tokens_details": {
+                  "text_tokens": 11026
+                },
+                "total_tokens": 11048
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 12750.0
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Thursday",
+                "step_id": "d4_s5",
+                "choice": "A",
+                "task_ids": [
+                  "email_form_followup_d4"
+                ],
+                "state_queries": {
+                  "email": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "email_form_followup_d4"
+              ],
+              "missed_due": [
+                "clinic_window_d4",
+                "email_vendor_1_d4"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Thursday",
+                "step_id": "d4_s5",
+                "choice": "A",
+                "task_ids": [
+                  "email_form_followup_d4"
+                ],
+                "state_queries": {
+                  "email": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "email_form_followup_d4"
+              ],
+              "missed_due": [
+                "clinic_window_d4",
+                "email_vendor_1_d4"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Thursday",
+            "step_id": "d4_s5",
+            "choice": "A",
+            "task_ids": [],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 0,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [],
+          "missed_due": [
+            "clinic_window_d4",
+            "email_form_followup_d4",
+            "email_vendor_1_d4"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "47:d5_s4": {
       "step_id": "d5_s4",
@@ -294,7 +1647,277 @@
         },
         "delivered_text": "State [calendar]: Calendar update: check-in moved later today."
       },
-      "trigger_event": "A courier is waiting at the reception desk with a slim envelope."
+      "trigger_event": "A courier is waiting at the reception desk with a slim envelope.",
+      "trial": {
+        "step_id": "d5_s4",
+        "pre_reply": {
+          "prompt_sha256": "dec63a4264ffa80d121d09b72851e6e88c3ea71eb4b72310b5bd751198592f8b",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\",\"support\":{\"task_17\":\"A courier is waiting at the reception desk with a slim envelope.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-40ba4805-bd83-96ac-b8da-eb5cd5b05be5",
+          "usage": {
+            "completion_tokens": 43,
+            "completion_tokens_details": {
+              "text_tokens": 43
+            },
+            "created": 1795089318,
+            "prompt_tokens": 13330,
+            "prompt_tokens_details": {
+              "text_tokens": 13330
+            },
+            "total_tokens": 13373
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 4643.4
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d5_s4",
+            "reply": {
+              "prompt_sha256": "70c8f85110d594526b6a61b61bcd09c7b198c81c53261d430dd162d816bbe7f2",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-81d67ce3-94b3-9077-8f49-cb3c117fe27d",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089323,
+                "prompt_tokens": 13449,
+                "prompt_tokens_details": {
+                  "text_tokens": 13449
+                },
+                "total_tokens": 13471
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 5154.7
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s4",
+                "choice": "A",
+                "task_ids": [
+                  "courier_desk_d5"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "courier_desk_d5"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "calendar_call_move_d5"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s4",
+                "choice": "A",
+                "task_ids": [
+                  "courier_desk_d5"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "courier_desk_d5"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "calendar_call_move_d5"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d5_s4",
+            "reply": {
+              "prompt_sha256": "a829408addb09ee755a9e900973bce714ae9413ef59c12c1310f265d8ebb28eb",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-ed0c4bdf-1645-9ead-9f3f-a70165d03853",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089326,
+                "prompt_tokens": 13319,
+                "prompt_tokens_details": {
+                  "text_tokens": 13319
+                },
+                "total_tokens": 13341
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 3319.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s4",
+                "choice": "A",
+                "task_ids": [
+                  "courier_desk_d5"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "courier_desk_d5"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "calendar_call_move_d5"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s4",
+                "choice": "A",
+                "task_ids": [
+                  "courier_desk_d5"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "courier_desk_d5"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "calendar_call_move_d5"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_17"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Friday",
+            "step_id": "d5_s4",
+            "choice": "A",
+            "task_ids": [
+              "courier_desk_d5"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "courier_desk_d5"
+          ],
+          "missed_due": [
+            "asthma_1100",
+            "calendar_call_move_d5"
+          ],
+          "non_due_actions": []
+        },
+        "support": {
+          "task_17": "A courier is waiting at the reception desk with a slim envelope."
+        },
+        "protected_task_ids": [
+          "courier_desk_d5"
+        ]
+      }
     },
     "47:d5_s5": {
       "step_id": "d5_s5",
@@ -335,7 +1958,268 @@
         },
         "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
       },
-      "trigger_event": "The doorbell camera flashes while you're still nearby."
+      "trigger_event": "The doorbell camera flashes while you're still nearby.",
+      "trial": {
+        "step_id": "d5_s5",
+        "pre_reply": {
+          "prompt_sha256": "9541eb76cc13b61b00944e7baedc599ef1bbf582f740bd5ebb1879088f6fe44d",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_25\"],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-3b4e497c-7b21-943d-a431-d55d32b88f6e",
+          "usage": {
+            "completion_tokens": 22,
+            "completion_tokens_details": {
+              "text_tokens": 22
+            },
+            "created": 1795089333,
+            "prompt_tokens": 13565,
+            "prompt_tokens_details": {
+              "text_tokens": 13565
+            },
+            "total_tokens": 13587
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 7166.8
+        },
+        "arms": {
+          "original": {
+            "step_id": "d5_s5",
+            "reply": {
+              "prompt_sha256": "7ce78d17fe692436279ff234b63b92194a06dd951ffd73f6cd09dd6397041a39",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_11\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-0e232bcd-29f8-94a1-8fcc-f22929a226cc",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089341,
+                "prompt_tokens": 13554,
+                "prompt_tokens_details": {
+                  "text_tokens": 13554
+                },
+                "total_tokens": 13576
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 7401.4
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_11"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d5"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d5"
+              ],
+              "missed_due": [
+                "doorbell_camera_flash_d5"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_11"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d5"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d5"
+              ],
+              "missed_due": [
+                "doorbell_camera_flash_d5"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d5_s5",
+            "reply": {
+              "prompt_sha256": "7dd2b7e0fad90c0753baedd0e13d6bbf15a74a8f52d7312dc808c51bb751df81",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_11\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-dd7ecbff-dfee-984d-a8fc-2668c67db427",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089343,
+                "prompt_tokens": 13665,
+                "prompt_tokens_details": {
+                  "text_tokens": 13665
+                },
+                "total_tokens": 13687
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 2435.8
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_11"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d5"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d5"
+              ],
+              "missed_due": [
+                "doorbell_camera_flash_d5"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_11"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s5",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d5"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d5"
+              ],
+              "missed_due": [
+                "doorbell_camera_flash_d5"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_25"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Friday",
+            "step_id": "d5_s5",
+            "choice": "A",
+            "task_ids": [
+              "doorbell_camera_flash_d5"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "doorbell_camera_flash_d5"
+          ],
+          "missed_due": [
+            "appointment_reschedule_open_d5"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "47:d6_s7": {
       "step_id": "d6_s7",
@@ -390,7 +2274,294 @@
         },
         "delivered_text": "State [price_tracker]: Price check: storage bin is $72. | Price check: filter is $54."
       },
-      "trigger_event": "The package locker light is finally green instead of red. The roof access sign is temporarily uncovered while maintenance is there. The concierge counter has your oversized parcel tag clipped to the side."
+      "trigger_event": "The package locker light is finally green instead of red. The roof access sign is temporarily uncovered while maintenance is there. The concierge counter has your oversized parcel tag clipped to the side.",
+      "trial": {
+        "step_id": "d6_s7",
+        "pre_reply": {
+          "prompt_sha256": "096e6e89373100d51e19794abefc923bc5f5c990819c89d1d3dffe444da64bfa",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_23\",\"task_5\"],\"support\":{\"task_23\":\"The roof access sign is temporarily uncovered while maintenance is there.\",\"task_5\":\"The concierge counter has your oversized parcel tag clipped to the side.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-c6b4d59c-b2a7-9a93-98fa-315a8782772a",
+          "usage": {
+            "completion_tokens": 60,
+            "completion_tokens_details": {
+              "text_tokens": 60
+            },
+            "created": 1795089368,
+            "prompt_tokens": 17481,
+            "prompt_tokens_details": {
+              "text_tokens": 17481
+            },
+            "total_tokens": 17541
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 24829.8
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d6_s7",
+            "reply": {
+              "prompt_sha256": "e5e00622501d165d9655b00569f5db26e65a0b8e14ac06314e4f655cdb9b8a28",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_23\",\"task_5\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-fac9e9cf-c41e-949e-9bec-2ca29a388af8",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089374,
+                "prompt_tokens": 17630,
+                "prompt_tokens_details": {
+                  "text_tokens": 17630
+                },
+                "total_tokens": 17656
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 7714.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23",
+                  "task_5"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Saturday",
+                "step_id": "d6_s7",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d6",
+                  "concierge_counter_d6"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d6",
+                "roof_access_sign_d6"
+              ],
+              "missed_due": [
+                "price_drop_54_d6",
+                "price_drop_72_d6"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23",
+                  "task_5"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Saturday",
+                "step_id": "d6_s7",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d6",
+                  "concierge_counter_d6"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d6",
+                "roof_access_sign_d6"
+              ],
+              "missed_due": [
+                "price_drop_54_d6",
+                "price_drop_72_d6"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d6_s7",
+            "reply": {
+              "prompt_sha256": "c0c34da7a521b3cdc53540f392ce3b95be269462a56ac160af6b1cb697a50960",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_9\",\"task_19\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-02cf71ff-922a-9cb7-89e9-ccaf40932e72",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089380,
+                "prompt_tokens": 17483,
+                "prompt_tokens_details": {
+                  "text_tokens": 17483
+                },
+                "total_tokens": 17509
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4105.8
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_9",
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Saturday",
+                "step_id": "d6_s7",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_54_d6",
+                  "price_drop_72_d6"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_54_d6",
+                "price_drop_72_d6"
+              ],
+              "missed_due": [
+                "concierge_counter_d6",
+                "roof_access_sign_d6"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_9",
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Saturday",
+                "step_id": "d6_s7",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_54_d6",
+                  "price_drop_72_d6"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_54_d6",
+                "price_drop_72_d6"
+              ],
+              "missed_due": [
+                "concierge_counter_d6",
+                "roof_access_sign_d6"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_23",
+              "task_5"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Saturday",
+            "step_id": "d6_s7",
+            "choice": "A",
+            "task_ids": [
+              "roof_access_sign_d6",
+              "concierge_counter_d6"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 2,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "concierge_counter_d6",
+            "roof_access_sign_d6"
+          ],
+          "missed_due": [
+            "price_drop_54_d6",
+            "price_drop_72_d6"
+          ],
+          "non_due_actions": []
+        },
+        "support": {
+          "task_23": "The roof access sign is temporarily uncovered while maintenance is there.",
+          "task_5": "The concierge counter has your oversized parcel tag clipped to the side."
+        },
+        "protected_task_ids": [
+          "roof_access_sign_d6",
+          "concierge_counter_d6"
+        ]
+      }
     },
     "47:d7_s4": {
       "step_id": "d7_s4",
@@ -432,7 +2603,273 @@
         },
         "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
       },
-      "trigger_event": "The community bulletin board has a fresh note pinned up."
+      "trigger_event": "The community bulletin board has a fresh note pinned up.",
+      "trial": {
+        "step_id": "d7_s4",
+        "pre_reply": {
+          "prompt_sha256": "6da3f14c55d969128b396146de86aa68496964c23a2f2d84d87445bb7c25fb51",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_14\"],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-b48dd8d8-e8fa-918b-b655-2e734b03d5ed",
+          "usage": {
+            "completion_tokens": 22,
+            "completion_tokens_details": {
+              "text_tokens": 22
+            },
+            "created": 1795089387,
+            "prompt_tokens": 19220,
+            "prompt_tokens_details": {
+              "text_tokens": 19220
+            },
+            "total_tokens": 19242
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 6986.9
+        },
+        "arms": {
+          "original": {
+            "step_id": "d7_s4",
+            "reply": {
+              "prompt_sha256": "0ffc3737dab726495aea21375170cdd80e2b4c5b0c5582264cbf9c4f74bcb228",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_19\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-837bbde0-1660-981b-89b1-8d3ff5109638",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089390,
+                "prompt_tokens": 19209,
+                "prompt_tokens_details": {
+                  "text_tokens": 19209
+                },
+                "total_tokens": 19231
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 3717.3
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s4",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d7"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d7"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "community_board_d7"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s4",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d7"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d7"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "community_board_d7"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d7_s4",
+            "reply": {
+              "prompt_sha256": "3fca6f6f20f2e0af7aca2bb13ea28f800a44ce188b6da875f4722a8a6bc4ee42",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_19\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-3b8a0611-7b5c-9e83-95e2-703855cf2564",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089395,
+                "prompt_tokens": 19320,
+                "prompt_tokens_details": {
+                  "text_tokens": 19320
+                },
+                "total_tokens": 19342
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4731.2
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s4",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d7"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d7"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "community_board_d7"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_19"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s4",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d7"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d7"
+              ],
+              "missed_due": [
+                "asthma_1100",
+                "community_board_d7"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_14"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Sunday",
+            "step_id": "d7_s4",
+            "choice": "A",
+            "task_ids": [
+              "community_board_d7"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "community_board_d7"
+          ],
+          "missed_due": [
+            "appointment_reschedule_open_d7",
+            "asthma_1100"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "47:d7_s8": {
       "step_id": "d7_s8",
@@ -476,7 +2913,278 @@
         },
         "delivered_text": "State [calendar]: Calendar update: guest count changed for tonight."
       },
-      "trigger_event": "The courtyard bench is finally empty for a minute."
+      "trigger_event": "The courtyard bench is finally empty for a minute.",
+      "trial": {
+        "step_id": "d7_s8",
+        "pre_reply": {
+          "prompt_sha256": "d81b5bbfbce13a23585457ba4e9fd9d0ac84978fd260a760aa4909b9a9a79b02",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_8\"],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-7b70d6f9-0f4b-9db1-adbf-37057c6faeca",
+          "usage": {
+            "completion_tokens": 21,
+            "completion_tokens_details": {
+              "text_tokens": 21
+            },
+            "created": 1795089399,
+            "prompt_tokens": 20183,
+            "prompt_tokens_details": {
+              "text_tokens": 20183
+            },
+            "total_tokens": 20204
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 4127.0
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d7_s8",
+            "reply": {
+              "prompt_sha256": "3450c59f7a72cb075e9efd0e547b44a0bcbb359d62af62b49e48af08bf0ca1ab",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_23\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-029bcc8e-851b-9f19-b2d7-dfd249465710",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089406,
+                "prompt_tokens": 20283,
+                "prompt_tokens_details": {
+                  "text_tokens": 20283
+                },
+                "total_tokens": 20305
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 6203.2
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s8",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_guest_note_d7"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_guest_note_d7"
+              ],
+              "missed_due": [
+                "courtyard_bench_d7",
+                "crossday_6",
+                "text_roommate_1_d7"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s8",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_guest_note_d7"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_guest_note_d7"
+              ],
+              "missed_due": [
+                "courtyard_bench_d7",
+                "crossday_6",
+                "text_roommate_1_d7"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d7_s8",
+            "reply": {
+              "prompt_sha256": "ef3a56385138496f06202a9f3643a97eb3e63c390a1d6a8b19e3ab618c057ae1",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_23\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-04d7e6ee-127e-9e71-b9b9-a6a230bb39e5",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089411,
+                "prompt_tokens": 20172,
+                "prompt_tokens_details": {
+                  "text_tokens": 20172
+                },
+                "total_tokens": 20194
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 5365.4
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s8",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_guest_note_d7"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_guest_note_d7"
+              ],
+              "missed_due": [
+                "courtyard_bench_d7",
+                "crossday_6",
+                "text_roommate_1_d7"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_23"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s8",
+                "choice": "A",
+                "task_ids": [
+                  "calendar_guest_note_d7"
+                ],
+                "state_queries": {
+                  "calendar": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "calendar_guest_note_d7"
+              ],
+              "missed_due": [
+                "courtyard_bench_d7",
+                "crossday_6",
+                "text_roommate_1_d7"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_8"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Sunday",
+            "step_id": "d7_s8",
+            "choice": "A",
+            "task_ids": [
+              "courtyard_bench_d7"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "courtyard_bench_d7"
+          ],
+          "missed_due": [
+            "calendar_guest_note_d7",
+            "crossday_6",
+            "text_roommate_1_d7"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "83:d1_s4": {
       "step_id": "d1_s4",
@@ -518,7 +3226,285 @@
         },
         "delivered_text": "State [course_portal]: Course portal: grade released."
       },
-      "trigger_event": "The lecture hall side door is propped open while the room resets. You leave yourself a note: On Tuesday, Carry the repair note when you notice the repair van."
+      "trigger_event": "The lecture hall side door is propped open while the room resets. You leave yourself a note: On Tuesday, Carry the repair note when you notice the repair van.",
+      "trial": {
+        "step_id": "d1_s4",
+        "pre_reply": {
+          "prompt_sha256": "a39162c06d014b5421bc9d317fe72991e1411932580c60083a88387383b46a6e",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_16\"],\"channel\":\"NONE\",\"support\":{\"task_16\":\"The lecture hall side door is propped open while the room resets.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-05b0362f-4da3-903f-b7ab-b51dce39ac6e",
+          "usage": {
+            "completion_tokens": 44,
+            "completion_tokens_details": {
+              "text_tokens": 44
+            },
+            "created": 1795089415,
+            "prompt_tokens": 1643,
+            "prompt_tokens_details": {
+              "text_tokens": 1643
+            },
+            "total_tokens": 1687
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 4257.0
+        },
+        "arms": {
+          "original": {
+            "step_id": "d1_s4",
+            "reply": {
+              "prompt_sha256": "8f607a94beb8175ad535a28535ef2cb3594bdcd996d3b22fdc1e0b69ee99b6aa",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_4\",\"task_16\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-48b93d56-e848-96b6-9e45-90aaaec40da9",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089419,
+                "prompt_tokens": 1631,
+                "prompt_tokens_details": {
+                  "text_tokens": 1631
+                },
+                "total_tokens": 1657
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 3825.1
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "C",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s4",
+                "choice": "C",
+                "task_ids": [
+                  "course_grade_released_d1",
+                  "lecture_side_door_d1"
+                ],
+                "state_queries": {
+                  "course_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "course_grade_released_d1",
+                "lecture_side_door_d1"
+              ],
+              "missed_due": [
+                "asthma_1100"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "C",
+                "task_ids": [
+                  "task_4",
+                  "task_16"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s4",
+                "choice": "C",
+                "task_ids": [
+                  "course_grade_released_d1",
+                  "lecture_side_door_d1"
+                ],
+                "state_queries": {
+                  "course_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "course_grade_released_d1",
+                "lecture_side_door_d1"
+              ],
+              "missed_due": [
+                "asthma_1100"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d1_s4",
+            "reply": {
+              "prompt_sha256": "0dc28614e7bea0172e81436e01e1d8bf3e7cb0ba779894bd3d29fbad1a1c3394",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"C\",\"task_ids\":[\"task_16\",\"task_4\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-f2062237-d156-94cb-8c5d-dac5c698e0dc",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089423,
+                "prompt_tokens": 1762,
+                "prompt_tokens_details": {
+                  "text_tokens": 1762
+                },
+                "total_tokens": 1788
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 3548.9
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "C",
+                "task_ids": [
+                  "task_16",
+                  "task_4"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s4",
+                "choice": "C",
+                "task_ids": [
+                  "lecture_side_door_d1",
+                  "course_grade_released_d1"
+                ],
+                "state_queries": {
+                  "course_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "course_grade_released_d1",
+                "lecture_side_door_d1"
+              ],
+              "missed_due": [
+                "asthma_1100"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "C",
+                "task_ids": [
+                  "task_16",
+                  "task_4"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Monday",
+                "step_id": "d1_s4",
+                "choice": "C",
+                "task_ids": [
+                  "lecture_side_door_d1",
+                  "course_grade_released_d1"
+                ],
+                "state_queries": {
+                  "course_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "course_grade_released_d1",
+                "lecture_side_door_d1"
+              ],
+              "missed_due": [
+                "asthma_1100"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "C",
+            "task_ids": [
+              "task_16"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Monday",
+            "step_id": "d1_s4",
+            "choice": "C",
+            "task_ids": [
+              "lecture_side_door_d1"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "lecture_side_door_d1"
+          ],
+          "missed_due": [
+            "asthma_1100",
+            "course_grade_released_d1"
+          ],
+          "non_due_actions": []
+        },
+        "support": {
+          "task_16": "The lecture hall side door is propped open while the room resets."
+        },
+        "protected_task_ids": [
+          "lecture_side_door_d1"
+        ]
+      }
     },
     "83:d2_s8": {
       "step_id": "d2_s8",
@@ -556,7 +3542,272 @@
         },
         "delivered_text": "State [appointment_portal]: Appointment portal: earlier slot available."
       },
-      "trigger_event": "You know you still have to send the repair photo today."
+      "trigger_event": "You know you still have to send the repair photo today.",
+      "trial": {
+        "step_id": "d2_s8",
+        "pre_reply": {
+          "prompt_sha256": "c29c124825e3d10fc6c7bd1eaa63c1768e4002582e64b524fe80c9afc019c469",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_10\"],\"channel\":\"NONE\",\"support\":{\"task_10\":\"You know you still have to send the repair photo today.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-adbe3471-b4df-9c64-af12-89b79c5c76b3",
+          "usage": {
+            "completion_tokens": 42,
+            "completion_tokens_details": {
+              "text_tokens": 42
+            },
+            "created": 1795089429,
+            "prompt_tokens": 5543,
+            "prompt_tokens_details": {
+              "text_tokens": 5543
+            },
+            "total_tokens": 5585
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 6205.7
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d2_s8",
+            "reply": {
+              "prompt_sha256": "89a2a329086cb95d3a4cfaa67bb905eb00e0f8e6887b891725b25619159a2f03",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_10\",\"task_24\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-b1187ebf-f39a-90f3-9a43-1ddce7f619d0",
+              "usage": {
+                "completion_tokens": 27,
+                "completion_tokens_details": {
+                  "text_tokens": 27
+                },
+                "created": 1795089433,
+                "prompt_tokens": 5661,
+                "prompt_tokens_details": {
+                  "text_tokens": 5661
+                },
+                "total_tokens": 5688
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4306.9
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_10",
+                  "task_24"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "send_repair_photo_2_d2",
+                  "appointment_reschedule_open_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 1,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": [
+                "send_repair_photo_2_d2"
+              ]
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_10",
+                  "task_24"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "send_repair_photo_2_d2",
+                  "appointment_reschedule_open_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 1,
+                "commission": 0,
+                "wrong_content": 1,
+                "set_fp": 1
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": [
+                "send_repair_photo_2_d2"
+              ]
+            }
+          },
+          "original": {
+            "step_id": "d2_s8",
+            "reply": {
+              "prompt_sha256": "10366082ce3205e90d35d02b2a34631d7cbd43f690ead7deed788f21a2ce227e",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_24\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-0c0820f0-8265-90d8-8262-15b360d7b355",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089435,
+                "prompt_tokens": 5532,
+                "prompt_tokens_details": {
+                  "text_tokens": 5532
+                },
+                "total_tokens": 5554
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 2164.8
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_24"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_24"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s8",
+                "choice": "A",
+                "task_ids": [
+                  "appointment_reschedule_open_d2"
+                ],
+                "state_queries": {
+                  "appointment_portal": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "appointment_reschedule_open_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_10"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Tuesday",
+            "step_id": "d2_s8",
+            "choice": "A",
+            "task_ids": [
+              "send_repair_photo_2_d2"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 0,
+            "late": 0,
+            "false_alarm": 1,
+            "commission": 0,
+            "wrong_content": 1,
+            "set_fp": 1
+          },
+          "completed_due": [],
+          "missed_due": [
+            "appointment_reschedule_open_d2"
+          ],
+          "non_due_actions": [
+            "send_repair_photo_2_d2"
+          ]
+        },
+        "support": {
+          "task_10": "You know you still have to send the repair photo today."
+        },
+        "protected_task_ids": [
+          "send_repair_photo_2_d2"
+        ]
+      }
     },
     "83:d2_s9": {
       "step_id": "d2_s9",
@@ -596,7 +3847,254 @@
         },
         "delivered_text": "State [price_tracker]: Price check: storage bin is $72."
       },
-      "trigger_event": "You slow down for a minute, check the folded towel, and sort out the rest of the night."
+      "trigger_event": "You slow down for a minute, check the folded towel, and sort out the rest of the night.",
+      "trial": {
+        "step_id": "d2_s9",
+        "pre_reply": {
+          "prompt_sha256": "df9af11545a281685002b6d90e7fccf3d0eacfa03394d4efd3adc96f99e795a0",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-86f7a866-2dbd-9d7d-88b6-f0d346c9ed35",
+          "usage": {
+            "completion_tokens": 18,
+            "completion_tokens_details": {
+              "text_tokens": 18
+            },
+            "created": 1795089441,
+            "prompt_tokens": 5824,
+            "prompt_tokens_details": {
+              "text_tokens": 5824
+            },
+            "total_tokens": 5842
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 5989.7
+        },
+        "arms": {
+          "original": {
+            "step_id": "d2_s9",
+            "reply": {
+              "prompt_sha256": "219f3e338978293b295519faf469913439899b2ba7ec14c357c6305378cb8694",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-756cecf7-bc34-9d3d-a3df-b121c91c5d8d",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089447,
+                "prompt_tokens": 5816,
+                "prompt_tokens_details": {
+                  "text_tokens": 5816
+                },
+                "total_tokens": 5838
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 5171.5
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s9",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_72_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s9",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_72_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d2_s9",
+            "reply": {
+              "prompt_sha256": "6c5e1453c49c63860ae57cdbc5482362d45c58c27cd159297a1c83afb098afe3",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_17\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-7a1c6a03-6829-9817-ab64-53db6685f31c",
+              "usage": {
+                "completion_tokens": 22,
+                "completion_tokens_details": {
+                  "text_tokens": 22
+                },
+                "created": 1795089453,
+                "prompt_tokens": 5927,
+                "prompt_tokens_details": {
+                  "text_tokens": 5927
+                },
+                "total_tokens": 5949
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 6432.3
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s9",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_72_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_17"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Tuesday",
+                "step_id": "d2_s9",
+                "choice": "A",
+                "task_ids": [
+                  "price_drop_72_d2"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 1,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "price_drop_72_d2"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Tuesday",
+            "step_id": "d2_s9",
+            "choice": "A",
+            "task_ids": [],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 0,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [],
+          "missed_due": [
+            "price_drop_72_d2"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     },
     "83:d5_s8": {
       "step_id": "d5_s8",
@@ -637,7 +4135,276 @@
         },
         "delivered_text": "State [library_hold]: Library notice: your hold is ready."
       },
-      "trigger_event": "The roof access sign is temporarily uncovered while maintenance is there."
+      "trigger_event": "The roof access sign is temporarily uncovered while maintenance is there.",
+      "trial": {
+        "step_id": "d5_s8",
+        "pre_reply": {
+          "prompt_sha256": "6118f78eabab719468547ae999b232f283a5a1df3ed1d174753b1e82500db9bf",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_5\"],\"channel\":\"NONE\",\"support\":{\"task_5\":\"The roof access sign is temporarily uncovered while maintenance is there.\"}}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-f269f712-6bca-966f-9137-9e77d4d1e527",
+          "usage": {
+            "completion_tokens": 40,
+            "completion_tokens_details": {
+              "text_tokens": 40
+            },
+            "created": 1795089460,
+            "prompt_tokens": 14393,
+            "prompt_tokens_details": {
+              "text_tokens": 14393
+            },
+            "total_tokens": 14433
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 7327.4
+        },
+        "arms": {
+          "preserve": {
+            "step_id": "d5_s8",
+            "reply": {
+              "prompt_sha256": "4f3495f855e60ef5abfb04d146df3fe1cf4e06c9a464a13856c8bc69fd4223be",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_5\",\"task_12\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-7021c586-36d0-9f1c-b75b-9b2f870b98d2",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089463,
+                "prompt_tokens": 14511,
+                "prompt_tokens_details": {
+                  "text_tokens": 14511
+                },
+                "total_tokens": 14537
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 2255.9
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_5",
+                  "task_12"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s8",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d5",
+                  "library_hold_ready_d5"
+                ],
+                "state_queries": {
+                  "library_hold": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "library_hold_ready_d5",
+                "roof_access_sign_d5"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_5",
+                  "task_12"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s8",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d5",
+                  "library_hold_ready_d5"
+                ],
+                "state_queries": {
+                  "library_hold": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "library_hold_ready_d5",
+                "roof_access_sign_d5"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          },
+          "original": {
+            "step_id": "d5_s8",
+            "reply": {
+              "prompt_sha256": "18e8503960f292ae0438817953d1de1111d17d54a8fc4d577e769ab666f548e6",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_5\",\"task_12\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-38d4aa8c-93f8-96fe-a1f9-c048c8741777",
+              "usage": {
+                "completion_tokens": 26,
+                "completion_tokens_details": {
+                  "text_tokens": 26
+                },
+                "created": 1795089468,
+                "prompt_tokens": 14383,
+                "prompt_tokens_details": {
+                  "text_tokens": 14383
+                },
+                "total_tokens": 14409
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4834.5
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_5",
+                  "task_12"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s8",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d5",
+                  "library_hold_ready_d5"
+                ],
+                "state_queries": {
+                  "library_hold": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "library_hold_ready_d5",
+                "roof_access_sign_d5"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_5",
+                  "task_12"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Friday",
+                "step_id": "d5_s8",
+                "choice": "A",
+                "task_ids": [
+                  "roof_access_sign_d5",
+                  "library_hold_ready_d5"
+                ],
+                "state_queries": {
+                  "library_hold": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 2,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "library_hold_ready_d5",
+                "roof_access_sign_d5"
+              ],
+              "missed_due": [],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_5"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Friday",
+            "step_id": "d5_s8",
+            "choice": "A",
+            "task_ids": [
+              "roof_access_sign_d5"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 1,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "roof_access_sign_d5"
+          ],
+          "missed_due": [
+            "library_hold_ready_d5"
+          ],
+          "non_due_actions": []
+        },
+        "support": {
+          "task_5": "The roof access sign is temporarily uncovered while maintenance is there."
+        },
+        "protected_task_ids": [
+          "roof_access_sign_d5"
+        ]
+      }
     },
     "83:d7_s9": {
       "step_id": "d7_s9",
@@ -695,7 +4462,387 @@
         },
         "delivered_text": "State [price_tracker]: Price check: storage bin is $72. | Price check: filter is $54."
       },
-      "trigger_event": "The concierge counter has your oversized parcel tag clipped to the side. The package locker light is finally green instead of red."
+      "trigger_event": "The concierge counter has your oversized parcel tag clipped to the side. The package locker light is finally green instead of red.",
+      "trial": {
+        "step_id": "d7_s9",
+        "pre_reply": {
+          "prompt_sha256": "ff6dcc3321b185e43331a825a6043d30fc6a3d4a8e2567615f3a4e2ddaae228e",
+          "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_20\",\"task_16\"],\"channel\":\"NONE\"}",
+          "actual_model": "qwen3.5-27b",
+          "request_id": "chatcmpl-0bddad7d-f9d5-9fd9-9d88-c041ad2852ba",
+          "usage": {
+            "completion_tokens": 27,
+            "completion_tokens_details": {
+              "text_tokens": 27
+            },
+            "created": 1795089476,
+            "prompt_tokens": 21536,
+            "prompt_tokens_details": {
+              "text_tokens": 21536
+            },
+            "total_tokens": 21563
+          },
+          "retry_errors": [],
+          "finish_reason": "stop",
+          "wall_ms": 8192.6
+        },
+        "arms": {
+          "original": {
+            "step_id": "d7_s9",
+            "reply": {
+              "prompt_sha256": "241b408519ff43e3c2eeeac11e67da274da5604cf5f01591f568bbfc1d384195",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_20\",\"task_16\",\"task_25\",\"task_1\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-45989480-3766-9824-9a5a-ff9acd8d4eab",
+              "usage": {
+                "completion_tokens": 36,
+                "completion_tokens_details": {
+                  "text_tokens": 36
+                },
+                "created": 1795089480,
+                "prompt_tokens": 21538,
+                "prompt_tokens_details": {
+                  "text_tokens": 21538
+                },
+                "total_tokens": 21574
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 3963.2
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_20",
+                  "task_16",
+                  "task_25",
+                  "task_1"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s9",
+                "choice": "A",
+                "task_ids": [
+                  "concierge_counter_d7",
+                  "package_locker_light_d7",
+                  "price_drop_72_d7",
+                  "price_drop_54_d7"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 4,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d7",
+                "package_locker_light_d7",
+                "price_drop_54_d7",
+                "price_drop_72_d7"
+              ],
+              "missed_due": [
+                "confirm_pickup_window_2_d7",
+                "crossday_6"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_20",
+                  "task_16",
+                  "task_25",
+                  "task_1"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s9",
+                "choice": "A",
+                "task_ids": [
+                  "concierge_counter_d7",
+                  "package_locker_light_d7",
+                  "price_drop_72_d7",
+                  "price_drop_54_d7"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 4,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d7",
+                "package_locker_light_d7",
+                "price_drop_54_d7",
+                "price_drop_72_d7"
+              ],
+              "missed_due": [
+                "confirm_pickup_window_2_d7",
+                "crossday_6"
+              ],
+              "non_due_actions": []
+            }
+          },
+          "preserve": {
+            "step_id": "d7_s9",
+            "reply": {
+              "prompt_sha256": "20deb5d2f334ac60bdc7a86f17f3cb92fe2837d294586c20b9bb0deb0489d43d",
+              "raw_output": "{\"action\":\"choose\",\"choice\":\"A\",\"task_ids\":[\"task_20\",\"task_16\",\"task_1\",\"task_25\"],\"channel\":\"NONE\"}",
+              "actual_model": "qwen3.5-27b",
+              "request_id": "chatcmpl-ef8360a3-7ac2-9c8d-978f-78c4b1854d49",
+              "usage": {
+                "completion_tokens": 36,
+                "completion_tokens_details": {
+                  "text_tokens": 36
+                },
+                "created": 1795089484,
+                "prompt_tokens": 21649,
+                "prompt_tokens_details": {
+                  "text_tokens": 21649
+                },
+                "total_tokens": 21685
+              },
+              "retry_errors": [],
+              "finish_reason": "stop",
+              "wall_ms": 4393.7
+            },
+            "proposed": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_20",
+                  "task_16",
+                  "task_1",
+                  "task_25"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s9",
+                "choice": "A",
+                "task_ids": [
+                  "concierge_counter_d7",
+                  "package_locker_light_d7",
+                  "price_drop_54_d7",
+                  "price_drop_72_d7"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 4,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d7",
+                "package_locker_light_d7",
+                "price_drop_54_d7",
+                "price_drop_72_d7"
+              ],
+              "missed_due": [
+                "confirm_pickup_window_2_d7",
+                "crossday_6"
+              ],
+              "non_due_actions": []
+            },
+            "invalidated": {},
+            "outcome": {
+              "choice": {
+                "action": "choose",
+                "choice": "A",
+                "task_ids": [
+                  "task_20",
+                  "task_16",
+                  "task_1",
+                  "task_25"
+                ],
+                "channel": "NONE"
+              },
+              "executor_error": null,
+              "native_action": {
+                "day": "Sunday",
+                "step_id": "d7_s9",
+                "choice": "A",
+                "task_ids": [
+                  "concierge_counter_d7",
+                  "package_locker_light_d7",
+                  "price_drop_54_d7",
+                  "price_drop_72_d7"
+                ],
+                "state_queries": {
+                  "price_tracker": 1
+                }
+              },
+              "current_step_metrics": {
+                "hit": 4,
+                "late": 0,
+                "false_alarm": 0,
+                "commission": 0,
+                "wrong_content": 0,
+                "set_fp": 0
+              },
+              "completed_due": [
+                "concierge_counter_d7",
+                "package_locker_light_d7",
+                "price_drop_54_d7",
+                "price_drop_72_d7"
+              ],
+              "missed_due": [
+                "confirm_pickup_window_2_d7",
+                "crossday_6"
+              ],
+              "non_due_actions": []
+            }
+          }
+        },
+        "pre": {
+          "choice": {
+            "action": "choose",
+            "choice": "A",
+            "task_ids": [
+              "task_20",
+              "task_16"
+            ],
+            "channel": "NONE"
+          },
+          "executor_error": null,
+          "native_action": {
+            "day": "Sunday",
+            "step_id": "d7_s9",
+            "choice": "A",
+            "task_ids": [
+              "concierge_counter_d7",
+              "package_locker_light_d7"
+            ],
+            "state_queries": {}
+          },
+          "current_step_metrics": {
+            "hit": 2,
+            "late": 0,
+            "false_alarm": 0,
+            "commission": 0,
+            "wrong_content": 0,
+            "set_fp": 0
+          },
+          "completed_due": [
+            "concierge_counter_d7",
+            "package_locker_light_d7"
+          ],
+          "missed_due": [
+            "confirm_pickup_window_2_d7",
+            "crossday_6",
+            "price_drop_54_d7",
+            "price_drop_72_d7"
+          ],
+          "non_due_actions": []
+        },
+        "support": {},
+        "protected_task_ids": []
+      }
     }
+  },
+  "summary": {
+    "windows": 15,
+    "strata": {
+      "target_only": 4,
+      "concurrent": 11
+    },
+    "target_opportunities": 18,
+    "other_opportunities": 26,
+    "arms": {
+      "original": {
+        "requests": 15,
+        "target_hits": 17,
+        "other_hits": 7,
+        "false_alarms": 0,
+        "non_due": 1,
+        "prompt_tokens": 166025,
+        "completion_tokens": 372,
+        "executor_errors": 0
+      },
+      "preserve": {
+        "requests": 15,
+        "target_hits": 12,
+        "other_hits": 10,
+        "false_alarms": 1,
+        "non_due": 2,
+        "prompt_tokens": 167867,
+        "completion_tokens": 369,
+        "executor_errors": 0
+      }
+    },
+    "paired": {
+      "restored_from_pre_read": 3,
+      "restored_protected": 3,
+      "target_gains": 0,
+      "target_losses": 5,
+      "other_losses": 0,
+      "pairs_more_false_alarms": 1
+    },
+    "restored_windows": [
+      {
+        "window": "47:d2_s8",
+        "tasks": [
+          "antibiotic_dinner"
+        ],
+        "protected": [
+          "antibiotic_dinner"
+        ]
+      },
+      {
+        "window": "47:d6_s7",
+        "tasks": [
+          "concierge_counter_d6",
+          "roof_access_sign_d6"
+        ],
+        "protected": [
+          "concierge_counter_d6",
+          "roof_access_sign_d6"
+        ]
+      }
+    ],
+    "checks": {
+      "restored": true,
+      "restored_windows": true,
+      "targets_preserved": false,
+      "other_preserved": true,
+      "false_alarms": false,
+      "non_due": false
+    },
+    "passed": false,
+    "shared_pre_read_requests": 15,
+    "shared_pre_read_prompt_tokens": 166147,
+    "shared_pre_read_completion_tokens": 511
   }
 }
