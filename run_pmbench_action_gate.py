@@ -15,7 +15,7 @@ from run_pmbench_reanswer import digest, verify_source
 from run_pmbench_timing import get_reply
 
 
-GATE_INSTRUCTION = (
+GATE_RULES = (
     "Audit the proposed changes to this step's prospective action set, using only the visible conversation. "
     "The first set is the no-new-read decision; the second is the proposed decision after the tool reply. "
     "Review exactly the listed additions and removals. For each addition, require a concrete current trigger "
@@ -25,7 +25,10 @@ GATE_INSTRUCTION = (
     "Accept a removal only when the action lacks a current basis, was superseded, or conflicts with a "
     "better-supported action. Keep an independently supported action when another action becomes due. "
     "Do not assume the previously selected actions were all correct. "
-    'Return only JSON with keys "add" and "remove". Each maps every listed handle for that operation '
+)
+GATE_INSTRUCTION = (
+    GATE_RULES
+    + 'Return only JSON with keys "add" and "remove". Each maps every listed handle for that operation '
     'to {"accept":true or false,"why":"brief visible evidence or reason"}. Use empty objects for empty lists. '
     "Never request a tool or propose any action outside the listed changes."
 )
@@ -83,16 +86,20 @@ def arm_metrics(pairs, arm):
     return dict(counts)
 
 
-def summarize(pairs):
-    c = arm_metrics(pairs, "archived_reply")
-    gate = arm_metrics(pairs, "gate")
-    checks = {
+def acceptance_checks(c, gate):
+    return {
         "false_alarms": c["false_alarms"] - gate["false_alarms"] >= CRITERIA["min_false_alarm_reduction"],
         "non_due": gate["non_due"] <= c["non_due"],
         "target_retention": gate["target_losses_from_c"] <= CRITERIA["max_retained_target_losses"],
         "other_retention": gate["other_losses_from_c"] <= CRITERIA["max_retained_other_losses"],
         "other_restored": gate["other_restored_from_b"] >= CRITERIA["min_other_restored"],
     }
+
+
+def summarize(pairs):
+    c = arm_metrics(pairs, "archived_reply")
+    gate = arm_metrics(pairs, "gate")
+    checks = acceptance_checks(c, gate)
     replies = [pair["reply"] for pair in pairs if "reply" in pair]
     return {"pairs": len(pairs), "archived_reply": c, "union": arm_metrics(pairs, "union"), "gate": gate,
             "checks": checks, "passed": all(checks.values()), "requests": len(replies),
