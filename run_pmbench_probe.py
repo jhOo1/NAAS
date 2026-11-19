@@ -108,20 +108,25 @@ def added_reads(read):
     return read if isinstance(read, list) else [read]
 
 
+def validate_choose(bench, result, menu):
+    if (not isinstance(result, dict) or result.get("action") != "choose"
+            or result.get("choice") not in ("A", "B", "C")
+            or result.get("channel", "NONE") != "NONE"):
+        raise ValueError("expected a native choose action")
+    handles = result.get("task_ids")
+    if (not isinstance(handles, list) or len(handles) > bench.MAX_ACTION_TASK_IDS
+            or any(not isinstance(handle, str) or handle not in menu for handle in handles)
+            or len(set(handles)) != len(handles)):
+        raise ValueError("invalid or duplicate native action handle")
+    return [menu[handle] for handle in handles]
+
+
 def score_action(bench, scenario, actions, frame, read, text):
     try:
         result = bench.parse_json_payload(text)
-        if (result.get("action") != "choose" or result.get("choice") not in ("A", "B", "C")
-                or result.get("channel", "NONE") != "NONE"):
-            raise ValueError("expected a native choose action")
-        handles = result.get("task_ids")
-        if (not isinstance(handles, list) or len(handles) > bench.MAX_ACTION_TASK_IDS
-                or any(not isinstance(handle, str) or handle not in frame["menu"] for handle in handles)
-                or len(set(handles)) != len(handles)):
-            raise ValueError("invalid or duplicate native action handle")
+        task_ids = validate_choose(bench, result, frame["menu"])
     except (AttributeError, TypeError, ValueError) as error:
         return {"error": str(error), "target_action": False}
-    task_ids = [frame["menu"][handle] for handle in handles]
     queries = bench.get_action_state_query_counts(frame["original_action"])
     for observed in added_reads(read):
         channel = observed["channel"]

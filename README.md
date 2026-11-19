@@ -5,6 +5,7 @@
 **当前研究问题**　长期个人助理如何核验隐藏的待办条件，并在有限读取预算下准时完成全部有依据的行动？
 
 - [监测主线、Benchmark、PM-Bench 归档审计与模型诊断](docs/monitoring-design.md)
+- [PM-Bench v9 固定周期与按需监测的九次读取对照](docs/timing-comparison-20261119.md)
 - [Qwen3.5-27B 单次自由选读基线与逐例对照](docs/free-read-20261118.md)
 - [Qwen3.5-27B 三臂模型级补证结果与复现](docs/model-pilot-20261118.md)
 - [第三轮研究设计、三项原生评分复核与补证实验协议](docs/evidence-replay.md)

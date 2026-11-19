@@ -93,6 +93,8 @@ class QwenAPI:
             except HTTPError as error:
                 transient.append(f"HTTP {error.code}")
                 if error.code not in {429, 500, 502, 503, 504} or attempt == 1:
+                    if error.code == 400 and b"403003" in error.read(4096):
+                        raise RuntimeError("Qwen gateway quota_id balance is insufficient (403003)") from None
                     raise RuntimeError(f"Qwen gateway returned HTTP {error.code}") from None
             except (URLError, TimeoutError) as error:
                 transient.append(type(error).__name__)
