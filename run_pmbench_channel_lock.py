@@ -41,7 +41,7 @@ def selection(bench, history, row, seed, channels, api, checkpoint):
     return plan_from_reply(bench, raw, channels)
 
 
-def coverage(bench, scenario, source, result, api, checkpoint):
+def coverage(bench, scenario, source, result, api, checkpoint, *, observe=None):
     targets = planned_targets(source)
     archive = next(run for run in source["runs"] if run["arm"] == "fixed")
     prefixes = prefixes_for(scenario, [{"step_id": step_id} for step_id in targets], archive)
@@ -84,6 +84,8 @@ def coverage(bench, scenario, source, result, api, checkpoint):
             if "audit" in trial and trial["audit"] != computed:
                 raise ValueError(f"Coverage replay diverged at {step_id} seed {seed}")
             trial["audit"] = computed
+            if observe is not None:
+                observe(window, seed, history, menu, args, trial)
             checkpoint()
             if api is not None:
                 print("coverage", step_id, seed, channel, sorted(matches), after["completed_due"], flush=True)
